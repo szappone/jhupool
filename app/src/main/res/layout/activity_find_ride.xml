@@ -85,5 +85,83 @@
         android:layout_below="@+id/from_arrow"
         android:layout_toRightOf="@id/to_input" />
 
+    <!-- DATE -->
+
+    <TextView
+        android:text="@string/arrow"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/date_arrow"
+        android:background="@color/colorAccent"
+        android:paddingRight="50dp"
+        android:gravity="end|center_vertical"
+        android:textAlignment="viewEnd"
+        android:onClick="date"
+        android:layout_below="@+id/to_input"
+        android:layout_toRightOf="@+id/date_input"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:text="@string/date"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/date_title"
+        android:background="@color/colorAccent"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="50dp"
+        android:textAlignment="viewStart"
+        android:onClick="date"
+        android:layout_below="@+id/to_title"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/date_input"
+        android:background="@color/colorAccent"
+        android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
+        android:onClick="date"
+        android:layout_below="@id/to_input"
+        android:layout_toRightOf="@+id/date_title"
+        android:layout_marginTop="30dp" />
+
+    <!-- TIME -->
+    <TextView
+        android:text="@string/time"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/time_title"
+        android:background="@color/colorAccent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="50dp"
+        android:textAlignment="viewStart"
+        android:layout_below="@+id/date_title"
+        android:onClick="time"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/time_input"
+        android:background="@color/colorAccent"
+        android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
+        android:onClick="time"
+        android:layout_below="@+id/date_input"
+        android:layout_toRightOf="@+id/time_title"/>
+    <TextView
+        android:text="@string/arrow"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/time_arrow"
+        android:background="@color/colorAccent"
+        android:paddingRight="50dp"
+        android:gravity="end|center_vertical"
+        android:textAlignment="viewEnd"
+        android:onClick="time"
+        android:layout_below="@+id/date_arrow"
+        android:layout_toRightOf="@id/time_input" />
 
 </RelativeLayout>

@@ -10,7 +10,7 @@
     <!-- main options -->
     <string name="from">From</string>
     <string name="to">To</string>
-    <string name="depart">Depart</string>
+    <string name="date">Depart</string>
     <string name="time">Time</string>
     <string name="riders">Riders</string>
 
