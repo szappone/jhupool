@@ -13,6 +13,7 @@
     <string name="date">Depart</string>
     <string name="time">Time</string>
     <string name="riders">Riders</string>
+    <string name="notes">Notes</string>
 
     <!-- locations (to/from) -->
     <string name="loc_homewood">Homewood</string>

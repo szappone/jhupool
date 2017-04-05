@@ -220,4 +220,45 @@
         android:layout_below="@+id/time_input"
         android:layout_toRightOf="@id/riders_decrement" />
 
+    <!-- NOTES -->
+
+    <TextView
+        android:text="@string/arrow"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/notes_arrow"
+        android:background="@color/colorAccent"
+        android:paddingRight="50dp"
+        android:gravity="end|center_vertical"
+        android:textAlignment="viewEnd"
+        android:onClick="notes"
+        android:layout_below="@+id/riders_arrow"
+        android:layout_toRightOf="@+id/notes_input"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:text="@string/notes"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/notes_title"
+        android:background="@color/colorAccent"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="50dp"
+        android:textAlignment="viewStart"
+        android:onClick="notes"
+        android:layout_below="@+id/riders_title"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/notes_input"
+        android:background="@color/colorAccent"
+        android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
+        android:onClick="notes"
+        android:layout_below="@id/riders_increment"
+        android:layout_toRightOf="@+id/notes_title"
+        android:layout_marginTop="30dp" />
+
 </RelativeLayout>

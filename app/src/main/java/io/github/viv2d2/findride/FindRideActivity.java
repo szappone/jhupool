@@ -16,6 +16,8 @@ public class FindRideActivity extends AppCompatActivity {
     private String date;
     private String time;
     private int numRiders;
+    private String notes;
+    private String notesPreview;
 
     private TextView input_from;
     private TextView input_to;
@@ -26,6 +28,8 @@ public class FindRideActivity extends AppCompatActivity {
     private SimpleDateFormat sdf_time;
 
     private TextView input_riders;
+
+    private TextView input_notes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class FindRideActivity extends AppCompatActivity {
         input_date = (TextView) findViewById(R.id.date_input);
         input_time = (TextView) findViewById(R.id.time_input);
         input_riders = (TextView) findViewById(R.id.riders_input);
+        input_notes = (TextView) findViewById(R.id.notes_input);
+
         // Date, time formats
         sdf_date = new SimpleDateFormat("EEE MMM dd yyyy");
         sdf_time = new SimpleDateFormat("hh:mm a");
@@ -60,6 +66,10 @@ public class FindRideActivity extends AppCompatActivity {
         // Set riders
         numRiders = 1;
         input_riders.setText(String.valueOf(numRiders));
+
+        // Set notes
+        notes = "";
+        notesPreview = "";
 
     }
 
@@ -105,6 +115,15 @@ public class FindRideActivity extends AppCompatActivity {
             numRiders--;
             input_riders.setText(String.valueOf(numRiders));
         }
+    }
+
+    public void notes(View view) {
+        // create new intent
+        Intent intent = new Intent(this, NotesActivity.class);
+        intent.putExtra("preview", notesPreview);
+        intent.putExtra("notes", notes);
+        // SelectLocActivity == 4
+        startActivityForResult(intent, 4);
     }
 
     @Override
@@ -157,6 +176,9 @@ public class FindRideActivity extends AppCompatActivity {
         if (requestCode == 4) {
             // make sure the request was successful
             if (resultCode == RESULT_OK) {
+                notes = data.getStringExtra("notes");
+                notesPreview = data.getStringExtra("preview");
+                input_notes.setText(notesPreview);
             }
         }
 
