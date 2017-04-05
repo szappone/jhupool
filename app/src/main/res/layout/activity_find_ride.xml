@@ -8,10 +8,82 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="io.github.viv2d2.findride.FindRide">
+    tools:context="io.github.viv2d2.findride.FindRideActivity">
+
+    <!-- FROM -->
+    <TextView
+        android:text="@string/from"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/from_title"
+        android:background="@color/colorAccent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="50dp"
+        android:textAlignment="viewStart"
+        android:onClick="from"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/from_input"
+        android:background="@color/colorAccent"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/from_title"
+        android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
+        android:onClick="from"/>
+
+    <TextView
+        android:text="@string/arrow"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/from_arrow"
+        android:background="@color/colorAccent"
+        android:paddingRight="50dp"
+        android:gravity="end|center_vertical"
+        android:textAlignment="viewEnd"
+        android:layout_toRightOf="@id/from_input"
+        android:onClick="from"/>
+
+    <!-- TO -->
+    <TextView
+        android:text="@string/to"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/to_title"
+        android:background="@color/colorAccent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="50dp"
+        android:textAlignment="viewStart"
+        android:layout_below="@+id/from_title"
+        android:onClick="to"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/to_input"
+        android:background="@color/colorAccent"
+        android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
+        android:onClick="to"
+        android:layout_below="@+id/from_input"
+        android:layout_toRightOf="@+id/to_title"/>
+    <TextView
+        android:text="@string/arrow"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/to_arrow"
+        android:background="@color/colorAccent"
+        android:paddingRight="50dp"
+        android:gravity="end|center_vertical"
+        android:textAlignment="viewEnd"
+        android:onClick="to"
+        android:layout_below="@+id/from_arrow"
+        android:layout_toRightOf="@id/to_input" />
+
+
 </RelativeLayout>

@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Find Ride</string>
+
+    <!-- arrow (to select options) -->
+    <string name="arrow"> > </string>
+
+    <!-- save -->
+    <string name="save">Save</string>
+
+    <!-- main options -->
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="depart">Depart</string>
+    <string name="time">Time</string>
+    <string name="riders">Riders</string>
+
+    <!-- locations (to/from) -->
+    <string name="loc_homewood">Homewood</string>
+    <string name="loc_bwi">BWI</string>
+    <string name="loc_tj">Trader Joe\'s</string>
+    <string name="loc_wf">Whole Foods</string>
+    <string name="loc_hm">HMart</string>
+    <string name="loc_special">Baltimore Half Marathon</string>
 </resources>
