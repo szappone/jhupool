@@ -6,6 +6,6 @@ jhuPool is an Android application that matches members of the Johns Hopkins Univ
 
 This repository is an implementation of the Find Ride/Selection screens.
 
-### Reminders ###
+### reminders ###
 
 comment your code!
