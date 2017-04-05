@@ -15,12 +15,17 @@ public class FindRideActivity extends AppCompatActivity {
     private String to;
     private String date;
     private String time;
+    private int numRiders;
+
     private TextView input_from;
     private TextView input_to;
+
     private TextView input_date;
     private TextView input_time;
     private SimpleDateFormat sdf_date;
     private SimpleDateFormat sdf_time;
+
+    private TextView input_riders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class FindRideActivity extends AppCompatActivity {
         input_to = (TextView) findViewById(R.id.to_input);
         input_date = (TextView) findViewById(R.id.date_input);
         input_time = (TextView) findViewById(R.id.time_input);
+        input_riders = (TextView) findViewById(R.id.riders_input);
         // Date, time formats
         sdf_date = new SimpleDateFormat("EEE MMM dd yyyy");
         sdf_time = new SimpleDateFormat("hh:mm a");
@@ -44,11 +50,17 @@ public class FindRideActivity extends AppCompatActivity {
         input_to.setText(to);
 
         // Set initial date/time
+        // IS TIME WORKING PROPERLY? --viv
         Calendar cal = Calendar.getInstance();
         time = sdf_time.format(cal.getTime());
         input_time.setText(time);
         date = sdf_date.format(cal.getTime());
         input_date.setText(date);
+
+        // Set riders
+        numRiders = 1;
+        input_riders.setText(String.valueOf(numRiders));
+
     }
 
     public void from(View view) {
@@ -79,6 +91,20 @@ public class FindRideActivity extends AppCompatActivity {
 
     public void time(View view) {
         // create new intent
+    }
+
+    public void incrementRiders(View view) {
+        if (numRiders != 6) { // max riders = 6
+            numRiders++;
+            input_riders.setText(String.valueOf(numRiders));
+        }
+    }
+
+    public void decrementRiders(View view) {
+        if (numRiders != 1) { // min riders = 1
+            numRiders--;
+            input_riders.setText(String.valueOf(numRiders));
+        }
     }
 
     @Override

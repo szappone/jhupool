@@ -21,4 +21,8 @@
     <string name="loc_wf">Whole Foods</string>
     <string name="loc_hm">HMart</string>
     <string name="loc_special">Baltimore Half Marathon</string>
+
+    <!-- num of riders -->
+    <string name="increment"> + </string>
+    <string name="decrement"> - </string>
 </resources>
