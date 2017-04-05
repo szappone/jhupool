@@ -17,6 +17,12 @@
         </activity>
         <activity android:name=".SelectLocActivity">
         </activity>
+        <activity android:name=".NotesActivity">
+        </activity>
+        <activity android:name=".SelectDateActivity">
+        </activity>
+        <activity android:name=".SelectTimeActivity">
+        </activity>
     </application>
 
 </manifest>
