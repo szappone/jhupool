@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class SelectLocActivity extends AppCompatActivity {
 
-    private final String check = "x";
+    private final String check = "✔️";
     private String dir;
     private String loc;
     private TextView homewood;

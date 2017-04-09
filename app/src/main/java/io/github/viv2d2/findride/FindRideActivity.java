@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -30,6 +31,9 @@ public class FindRideActivity extends AppCompatActivity {
     private TextView input_riders;
 
     private TextView input_notes;
+
+    private int pickerHour = 0;
+    private int pickerMin = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +75,19 @@ public class FindRideActivity extends AppCompatActivity {
         notes = "";
         notesPreview = "";
 
+        final Button button = (Button) findViewById(R.id.find_ride_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(FindRideActivity.this, FindRideResultsActivity.class);
+                /*intent.putExtra("from", input_from.getText().toString());
+                intent.putExtra("to", input_to.getText().toString());
+                intent.putExtra("date", input_date.getText().toString());
+                intent.putExtra("time", input_time.getText().toString());
+                intent.putExtra("riders", input_riders.getText().toString());
+                intent.putExtra("notes", input_notes.getText().toString());*/
+                startActivity(intent);
+            }
+        });
     }
 
     public void from(View view) {
@@ -97,10 +114,16 @@ public class FindRideActivity extends AppCompatActivity {
 
     public void date(View view) {
         // create new intent
+        Intent intent = new Intent(this, SelectDateActivity.class);
+        startActivityForResult(intent, 2);
+        //code=2
     }
 
     public void time(View view) {
         // create new intent
+        Intent intent = new Intent(this, SelectTimeActivity.class);
+        startActivityForResult(intent, 3);
+        //code=3
     }
 
     public void incrementRiders(View view) {
@@ -125,6 +148,7 @@ public class FindRideActivity extends AppCompatActivity {
         // SelectLocActivity == 4
         startActivityForResult(intent, 4);
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -162,6 +186,7 @@ public class FindRideActivity extends AppCompatActivity {
         if (requestCode == 2) {
             // make sure the request was successful
             if (resultCode == RESULT_OK) {
+                input_date.setText(data.getStringExtra("selected_date"));
             }
         }
 
@@ -169,6 +194,7 @@ public class FindRideActivity extends AppCompatActivity {
         if (requestCode == 3) {
             // make sure the request was successful
             if (resultCode == RESULT_OK) {
+                input_time.setText(data.getStringExtra("updated_time"));
             }
         }
 
@@ -183,4 +209,6 @@ public class FindRideActivity extends AppCompatActivity {
         }
 
     }
+
 }
+
