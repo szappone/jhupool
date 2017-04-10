@@ -8,8 +8,4 @@ This repository is an implementation of the Find Ride/Selection screens.
 
 ### reminders ###
 
-<<<<<<< HEAD
 comment your code!
-=======
-comment your code!
->>>>>>> b623bdd8dd1ea7abd6f2fafedbdbed23b13b18f5
