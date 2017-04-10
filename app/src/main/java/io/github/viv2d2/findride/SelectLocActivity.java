@@ -1,6 +1,7 @@
 package io.github.viv2d2.findride;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -38,6 +39,7 @@ public class SelectLocActivity extends AppCompatActivity {
         // set heading text based on direction?
         dir = getIntent().getStringExtra("direction");
         loc = getIntent().getStringExtra("location");
+
 
         // Initialize all variables
         homewood_check = (TextView) findViewById(R.id.homewood_check);
