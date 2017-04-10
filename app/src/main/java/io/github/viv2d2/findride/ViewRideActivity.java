@@ -3,6 +3,7 @@ package io.github.viv2d2.findride;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.view.View;
 
 /**
  * Details for a ride.
@@ -27,6 +28,8 @@ public class ViewRideActivity extends AppCompatActivity {
 
     private TextView riders_info;
 
+    private TextView action_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class ViewRideActivity extends AppCompatActivity {
         input_riders = (TextView) findViewById(R.id.riders_input);
         input_notes = (TextView) findViewById(R.id.notes_input);
         riders_info = (TextView) findViewById(R.id.riders_info);
+        action_button = (TextView) findViewById(R.id.action_button);
 
         // Get info
         action = getIntent().getIntExtra("action", 0);
@@ -57,5 +61,40 @@ public class ViewRideActivity extends AppCompatActivity {
         input_riders.setText(riders);
         input_notes.setText(notes);
 
+        // Set action (based on 0,1,2)
+        if (action == 0) {
+            // create new car
+            action_button.setText("Create Car");
+        } else if (action == 1) {
+            // join car
+            action_button.setText("Join Car");
+        } else { // action == 2
+            // leave car
+            action_button.setText("Leave Car");
+        }
+
+        // Set rider info
+        riders_info.setText("TBA");
+
+    }
+
+    public void action(View view) {
+        if (action == 0) {
+            // create new car
+
+            // ADD DIALOG TO CONFIRM RIDERS, NOTES
+            // create new car
+
+        } else if (action == 1) {
+            // join car
+
+            // ADD DIALOG TO CONFIRM RIDERS, NOTES
+            // add user to car
+
+        } else { // action == 2
+            // leave car
+
+            // remove user from car/delete car
+        }
     }
 }

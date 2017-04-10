@@ -173,7 +173,7 @@
     <!-- CALL ACTION METHOD -->
     <!-- action = 0 (create), 1 (join), 2 (leave) -->
     <Button
-        android:id="@+id/find_ride_button"
+        android:id="@+id/action_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
