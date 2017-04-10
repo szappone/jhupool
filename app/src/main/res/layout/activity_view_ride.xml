@@ -21,8 +21,7 @@
         android:layout_alignParentStart="true"
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:onClick="from"/>
+        android:textAlignment="viewStart" />
 
     <TextView
         android:layout_width="250dp"
@@ -32,8 +31,7 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/from_title"
         android:gravity="start|center_vertical"
-        android:textAlignment="viewStart"
-        android:onClick="from"/>
+        android:textAlignment="viewStart" />
 
     <!-- TO -->
     <TextView
@@ -47,8 +45,7 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:layout_below="@+id/from_title"
-        android:onClick="to"/>
+        android:layout_below="@+id/from_title" />
 
     <TextView
         android:layout_width="250dp"
@@ -57,7 +54,6 @@
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="to"
         android:layout_below="@+id/from_input"
         android:layout_toRightOf="@+id/to_title"/>
 
@@ -72,7 +68,6 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@+id/to_title"
         android:layout_marginTop="35dp" />
 
@@ -83,7 +78,6 @@
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@id/to_input"
         android:layout_toRightOf="@+id/date_title"
         android:layout_marginTop="35dp" />
@@ -100,8 +94,7 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:layout_below="@+id/date_title"
-        android:onClick="time"/>
+        android:layout_below="@+id/date_title" />
 
     <TextView
         android:layout_width="250dp"
@@ -110,7 +103,6 @@
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="time"
         android:layout_below="@+id/date_input"
         android:layout_toRightOf="@+id/time_title"/>
 
@@ -148,7 +140,6 @@
         android:id="@+id/riders_info"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="notes"
         android:paddingLeft="30dp"
         android:layout_below="@+id/riders_title"
         android:layout_alignParentLeft="true"
@@ -164,7 +155,6 @@
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
         android:text="@string/notes"
-        android:onClick="notes"
         android:paddingLeft="30dp"
         android:layout_below="@id/riders_info"
         android:layout_marginTop="35dp" />
@@ -175,7 +165,6 @@
         android:id="@+id/notes_input"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="notes"
         android:paddingLeft="30dp"
         android:layout_below="@+id/notes_title"
         android:layout_alignParentLeft="true"
