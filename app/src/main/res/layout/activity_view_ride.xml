@@ -21,31 +21,17 @@
         android:layout_alignParentStart="true"
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:onClick="from"/>
+        android:textAlignment="viewStart" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="35dp"
         android:id="@+id/from_input"
         android:background="@color/colorAccent"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/from_title"
         android:gravity="start|center_vertical"
-        android:textAlignment="viewStart"
-        android:onClick="from"/>
-
-    <TextView
-        android:text="@string/arrow"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:id="@+id/from_arrow"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_toRightOf="@id/from_input"
-        android:onClick="from"/>
+        android:textAlignment="viewStart" />
 
     <!-- TO -->
     <TextView
@@ -59,47 +45,19 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:layout_below="@+id/from_title"
-        android:onClick="to"/>
+        android:layout_below="@+id/from_title" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="35dp"
         android:id="@+id/to_input"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="to"
         android:layout_below="@+id/from_input"
         android:layout_toRightOf="@+id/to_title"/>
-    <TextView
-        android:text="@string/arrow"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:id="@+id/to_arrow"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:onClick="to"
-        android:layout_below="@+id/from_arrow"
-        android:layout_toRightOf="@id/to_input" />
 
     <!-- DATE -->
-
-    <TextView
-        android:text="@string/arrow"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:id="@+id/date_arrow"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:onClick="date"
-        android:layout_below="@+id/to_input"
-        android:layout_toRightOf="@+id/date_input"
-        android:layout_marginTop="35dp" />
 
     <TextView
         android:text="@string/date"
@@ -110,18 +68,16 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@+id/to_title"
         android:layout_marginTop="35dp" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="35dp"
         android:id="@+id/date_input"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@id/to_input"
         android:layout_toRightOf="@+id/date_title"
         android:layout_marginTop="35dp" />
@@ -138,31 +94,18 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:layout_below="@+id/date_title"
-        android:onClick="time"/>
+        android:layout_below="@+id/date_title" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="35dp"
         android:id="@+id/time_input"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="time"
         android:layout_below="@+id/date_input"
         android:layout_toRightOf="@+id/time_title"/>
-    <TextView
-        android:text="@string/arrow"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:id="@+id/time_arrow"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:onClick="time"
-        android:layout_below="@+id/date_arrow"
-        android:layout_toRightOf="@id/time_input" />
+
 
     <!-- RIDERS -->
     <TextView
@@ -179,100 +122,58 @@
         android:layout_below="@+id/time_title"/>
 
     <TextView
-        android:text="@string/decrement"
-        android:layout_width="40dp"
-        android:layout_height="35dp"
-        android:id="@+id/riders_decrement"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:textAlignment="viewStart"
-        android:onClick="decrementRiders"
-        android:layout_below="@+id/time_input"
-        android:textStyle="bold"
-        android:layout_toRightOf="@+id/riders_title"/>
-
-
-    <TextView
-        android:layout_width="20dp"
+        android:layout_width="100dp"
         android:layout_height="35dp"
         android:id="@+id/riders_input"
         android:background="@color/colorAccent"
         android:gravity="center|center_vertical"
         android:textAlignment="center"
         android:layout_below="@+id/time_input"
-        android:layout_toRightOf="@+id/riders_decrement"/>
+        android:layout_toRightOf="@+id/riders_title"
+        android:layout_alignRight="@+id/time_input"
+        android:layout_alignEnd="@+id/time_input" />
 
 
     <TextView
-        android:text="@string/increment"
-        android:layout_width="40dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:id="@+id/riders_increment"
-        android:background="@color/colorAccent"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:onClick="incrementRiders"
-        android:layout_below="@+id/time_input"
-        android:textStyle="bold"
-        android:layout_toRightOf="@+id/riders_input"/>
-
-
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:id="@+id/riders_arrow"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_below="@+id/time_input"
-        android:layout_toRightOf="@id/riders_increment" />
+        android:id="@+id/riders_info"
+        android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
+        android:paddingLeft="30dp"
+        android:layout_below="@+id/riders_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!-- NOTES -->
 
     <TextView
-        android:text="@string/arrow"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:id="@+id/notes_arrow"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:onClick="notes"
-        android:layout_below="@+id/riders_arrow"
-        android:layout_toRightOf="@+id/notes_input"
-        android:layout_marginTop="35dp" />
-
-    <TextView
-        android:text="@string/notes"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:id="@+id/notes_title"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:onClick="notes"
-        android:layout_below="@+id/riders_title"
+        android:text="@string/notes"
+        android:paddingLeft="30dp"
+        android:layout_below="@id/riders_info"
         android:layout_marginTop="35dp" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:id="@+id/notes_input"
-        android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="notes"
-        android:layout_below="@id/riders_increment"
-        android:layout_toRightOf="@+id/notes_title"
-        android:layout_marginTop="35dp" />
+        android:paddingLeft="30dp"
+        android:layout_below="@+id/notes_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!-- CALL ACTION METHOD -->
     <!-- action = 0 (create), 1 (join), 2 (leave) -->
     <Button
-        android:id="@+id/find_ride_button"
+        android:id="@+id/action_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -280,5 +181,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="action"/>
+
 
 </RelativeLayout>
