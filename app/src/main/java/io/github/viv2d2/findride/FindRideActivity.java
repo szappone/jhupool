@@ -151,12 +151,12 @@ public class FindRideActivity extends AppCompatActivity {
 
     public void launchResults(View v) {
         Intent intent = new Intent(FindRideActivity.this, FindRideResultsActivity.class);
-                intent.putExtra("from", input_from.getText().toString());
-                intent.putExtra("to", input_to.getText().toString());
-                intent.putExtra("date", input_date.getText().toString());
-                intent.putExtra("time", input_time.getText().toString());
-                intent.putExtra("riders", input_riders.getText().toString());
-                intent.putExtra("notes", input_notes.getText().toString());
+        intent.putExtra("from", input_from.getText().toString());
+        intent.putExtra("to", input_to.getText().toString());
+        intent.putExtra("date", input_date.getText().toString());
+        intent.putExtra("time", input_time.getText().toString());
+        intent.putExtra("riders", input_riders.getText().toString());
+        intent.putExtra("notes", input_notes.getText().toString());
         startActivity(intent);
     }
 
