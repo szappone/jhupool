@@ -75,19 +75,6 @@ public class FindRideActivity extends AppCompatActivity {
         notes = "";
         notesPreview = "";
 
-        /*final Button button = (Button) findViewById(R.id.find_ride_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(FindRideActivity.this, FindRideResultsActivity.class);
-                /*intent.putExtra("from", input_from.getText().toString());
-                intent.putExtra("to", input_to.getText().toString());
-                intent.putExtra("date", input_date.getText().toString());
-                intent.putExtra("time", input_time.getText().toString());
-                intent.putExtra("riders", input_riders.getText().toString());
-                intent.putExtra("notes", input_notes.getText().toString());
-                startActivity(intent);
-            }
-        });*/
     }
 
     public void from(View view) {
