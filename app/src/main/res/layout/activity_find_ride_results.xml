@@ -317,20 +317,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
-                    android:text="BWI -> Homewood"
+                    android:id="@+id/create_fromTo"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
-                    android:text="Sun March 12, 7 pm" />
+                    android:id="@+id/create_dateTime" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
-                    android:text="4 riders" />
+                    android:id="@+id/create_riders"/>
 
             </LinearLayout>
         </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Shows results (from matching algorithm) and user's car (from search).
@@ -18,6 +19,10 @@ public class FindRideResultsActivity extends AppCompatActivity {
     private String user_riders;
     private String user_notes;
 
+    private TextView preview_fromTo;
+    private TextView preview_dateTime;
+    private TextView preview_riders;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_ride_results);
@@ -30,6 +35,15 @@ public class FindRideResultsActivity extends AppCompatActivity {
         user_time = getIntent().getStringExtra("time");
         user_riders = getIntent().getStringExtra("riders");
         user_notes = getIntent().getStringExtra("notes");
+
+        // Set up preview
+        preview_fromTo = (TextView) findViewById(R.id.create_fromTo);
+        preview_dateTime = (TextView) findViewById(R.id.create_dateTime);
+        preview_riders = (TextView) findViewById(R.id.create_riders);
+
+        preview_fromTo.setText(user_from + " -> " + user_to);
+        preview_dateTime.setText(user_date + ", " + user_time);
+        preview_riders.setText(user_riders + " riders");
     }
 
     public void createCar(View view) {
