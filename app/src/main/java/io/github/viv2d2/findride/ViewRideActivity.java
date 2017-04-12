@@ -51,7 +51,8 @@ public class ViewRideActivity extends AppCompatActivity {
         to = getIntent().getStringExtra("to");
         date = getIntent().getStringExtra("date");
         time = getIntent().getStringExtra("time");
-        riders = getIntent().getStringExtra("notes");
+        riders = getIntent().getStringExtra("riders");
+        notes = getIntent().getStringExtra("notes");
 
         // Set fields
         input_from.setText(from);
