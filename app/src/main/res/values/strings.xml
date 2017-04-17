@@ -43,4 +43,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!-- Settings Strings -->
+    <string name="notifications">Notifications</string>
+    <string name="jhed">JHED</string>
+    <string name="facebook">Facebook</string>
 </resources>
