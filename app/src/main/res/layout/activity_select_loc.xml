@@ -11,49 +11,49 @@
 
     <!-- HOMEWOOD -->
     <TextView
-
         android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
+        android:textSize="16dp"
         android:id="@+id/homewood"
         android:text="@string/loc_homewood"
         android:background="@color/colorAccent"
         android:layout_alignParentTop="true"
         android:gravity="start|center_vertical"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:textAlignment="viewStart"
         android:onClick="homewood"/>
 
     <TextView
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/homewood_check"
         android:background="@color/colorAccent"
-        android:paddingRight="50dp"
+        android:paddingRight="30dp"
         android:gravity="end|center_vertical"
         android:textAlignment="viewEnd"
         android:layout_toRightOf="@id/homewood"
         android:onClick="homewood"/>
 
     <!-- BWI -->
-
     <TextView
         android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/bwi"
         android:text="@string/loc_bwi"
+        android:textSize="16dp"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:textAlignment="viewStart"
         android:layout_below="@id/homewood"
         android:onClick="bwi"/>
 
     <TextView
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/bwi_check"
         android:background="@color/colorAccent"
-        android:paddingRight="50dp"
+        android:paddingRight="30dp"
         android:gravity="end|center_vertical"
         android:textAlignment="viewEnd"
         android:layout_toRightOf="@id/bwi"
@@ -61,25 +61,25 @@
         android:onClick="bwi"/>
 
     <!-- TRADER JOE'S -->
-
     <TextView
         android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/tj"
         android:text="@string/loc_tj"
+        android:textSize="16dp"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:textAlignment="viewStart"
         android:layout_below="@id/bwi"
         android:onClick="tj"/>
 
     <TextView
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/tj_check"
         android:background="@color/colorAccent"
-        android:paddingRight="50dp"
+        android:paddingRight="30dp"
         android:gravity="end|center_vertical"
         android:textAlignment="viewEnd"
         android:layout_toRightOf="@id/tj"
@@ -90,22 +90,23 @@
 
     <TextView
         android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/wf"
         android:text="@string/loc_wf"
+        android:textSize="16dp"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:textAlignment="viewStart"
         android:layout_below="@id/tj"
         android:onClick="wf"/>
 
     <TextView
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/wf_check"
         android:background="@color/colorAccent"
-        android:paddingRight="50dp"
+        android:paddingRight="30dp"
         android:gravity="end|center_vertical"
         android:textAlignment="viewEnd"
         android:layout_toRightOf="@id/wf"
@@ -113,25 +114,25 @@
         android:onClick="wf"/>
 
     <!-- HMART -->
-
     <TextView
         android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/hm"
         android:text="@string/loc_hm"
+        android:textSize="16dp"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:textAlignment="viewStart"
         android:layout_below="@id/wf"
         android:onClick="hm"/>
 
     <TextView
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/hm_check"
         android:background="@color/colorAccent"
-        android:paddingRight="50dp"
+        android:paddingRight="30dp"
         android:gravity="end|center_vertical"
         android:textAlignment="viewEnd"
         android:layout_toRightOf="@id/hm"
@@ -139,25 +140,25 @@
         android:onClick="hm"/>
 
     <!-- SPECIAL -->
-
     <TextView
         android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/special"
         android:text="@string/loc_special"
+        android:textSize="16dp"
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
-        android:paddingLeft="50dp"
+        android:paddingLeft="30dp"
         android:textAlignment="viewStart"
         android:layout_below="@id/hm"
         android:onClick="special"/>
 
     <TextView
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:id="@+id/special_check"
         android:background="@color/colorAccent"
-        android:paddingRight="50dp"
+        android:paddingRight="30dp"
         android:gravity="end|center_vertical"
         android:textAlignment="viewEnd"
         android:layout_toRightOf="@id/special"
@@ -171,10 +172,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/save"
         android:layout_gravity="center"
+        android:textSize="16dp"
         android:onClick="save"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-
 </RelativeLayout>

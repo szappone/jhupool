@@ -75,7 +75,7 @@ public class ViewRideActivity extends AppCompatActivity {
         }
 
         // Set rider info
-        riders_info.setText("TBA");
+        riders_info.setText("Sarah                  24 mutual");
 
     }
 
