@@ -25,13 +25,20 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".SelectLocActivity" />
-        <activity android:name=".NotesActivity" />
-        <activity android:name=".SelectDateActivity" />
-        <activity android:name=".SelectTimeActivity" />
-        <activity android:name=".FindRideResultsActivity" />
-        <activity android:name=".ViewRideActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".SelectLocActivity"
+            android:label="Location"/>
+        <activity android:name=".NotesActivity"
+            android:label="@string/notes"/>
+        <activity android:name=".SelectDateActivity"
+            android:label="@string/date"/>
+        <activity android:name=".SelectTimeActivity"
+            android:label="@string/time"/>
+        <activity android:name=".FindRideResultsActivity"
+            android:label="Ride Results"/>
+        <activity android:name=".ViewRideActivity"
+            android:label="View Ride"/>
+        <activity android:name=".MainActivity"
+            android:label=""/>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
