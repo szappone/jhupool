@@ -49,11 +49,13 @@ public class SelectTimeActivity extends AppCompatActivity {
                 String extraZero = "0";
                 if (hour >= 12) {
                     timeOfDay = " PM";
-                    extraZero = "";
                     hour = hour % 12;
                 }
                 if (hour == 0) {
                     hour = 12;
+                }
+                if (hour >= 10) {
+                    extraZero = "";
                 }
 
                 Intent intent = getIntent();
