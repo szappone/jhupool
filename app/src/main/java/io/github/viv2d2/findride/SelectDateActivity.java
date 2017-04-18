@@ -59,7 +59,7 @@ public class SelectDateActivity extends AppCompatActivity {
     }
 
     public void save(View view) {
-        Intent intent = getIntent();
+        Intent intent = new Intent();
         intent.putExtra("selected_date", dayOfWeek.substring(0, 3) + " " + monthStr + " " + dayInt + " " + yearInt);
         setResult(Activity.RESULT_OK, intent);
         finish();
