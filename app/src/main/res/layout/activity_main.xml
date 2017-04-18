@@ -11,14 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab_layout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            app:tabGravity="fill"
-            app:tabMaxWidth="0dp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="261dp"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:elevation="4dp"
+                app:tabGravity="fill"
+                app:tabMaxWidth="0dp"
+                app:tabTextColor="#ffffff"
+                app:tabIndicatorColor="#ffffff" />
+
+            <TextView
+                android:layout_width="108dp"
+                android:layout_height="?attr/actionBarSize"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/find_ride"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/find_ride"
+                android:onClick="findRide"
+                android:textColor="#ffffff"
+                android:layout_alignParentRight="false"
+                tools:textAlignment="center" />
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"

@@ -1,6 +1,7 @@
 package io.github.viv2d2.findride;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.app.FragmentTransaction;
 import android.app.TabActivity;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.TextView;
+
 import java.util.*;
 
 
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // Making new tabs and adding to tabLayout
         tabLayout.addTab(tabLayout.newTab().setText("All Rides"));
         tabLayout.addTab(tabLayout.newTab().setText("My Rides"));
+        tabLayout.addTab(tabLayout.newTab().setText("Find Ride"));
 
         // Adding fragments to a list
         List<Fragment> fragments = new Vector<Fragment>();
@@ -44,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new SectionPagerAdapter(getSupportFragmentManager(), fragments));
         tabLayout.setupWithViewPager(viewPager);
 
+    }
+
+    public void findRide(View view) {
+        Intent intent = new Intent(MainActivity.this, FindRideActivity.class);
+        startActivity(intent);
     }
 
     private class SectionPagerAdapter extends FragmentPagerAdapter {
@@ -70,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return "All Rides";
                 case 1:
-                default:
                     return "My Rides";
+                case 2:
+                default:
+                    return "Find Ride";
             }
         }
     }
