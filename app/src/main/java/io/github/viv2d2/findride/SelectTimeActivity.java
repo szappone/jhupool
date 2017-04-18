@@ -46,8 +46,10 @@ public class SelectTimeActivity extends AppCompatActivity {
                 int hour = timePicker.getCurrentHour();
                 int min = timePicker.getCurrentMinute();
                 String timeOfDay = " AM";
+                String extraZero = "0";
                 if (hour >= 12) {
                     timeOfDay = " PM";
+                    extraZero = "";
                     hour = hour % 12;
                 }
                 if (hour == 0) {
@@ -55,7 +57,7 @@ public class SelectTimeActivity extends AppCompatActivity {
                 }
 
                 Intent intent = getIntent();
-                intent.putExtra("updated_time", hour + ":" + min + timeOfDay);
+                intent.putExtra("updated_time", extraZero + hour + ":" + min + timeOfDay);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
 
