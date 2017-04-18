@@ -39,7 +39,7 @@ public class SelectTimeActivity extends AppCompatActivity {
         final TimePicker timePicker = (TimePicker) findViewById(R.id.time_picker); //initiate a time picker
 
 
-        final Button button = (Button) findViewById(R.id.confirm_date);
+        final Button button = (Button) findViewById(R.id.save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
