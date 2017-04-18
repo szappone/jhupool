@@ -1,5 +1,6 @@
 package io.github.viv2d2.findride;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -80,6 +81,9 @@ public class ViewRideActivity extends AppCompatActivity {
     }
 
     public void action(View view) {
+        Intent intent = new Intent(ViewRideActivity.this, MainActivity.class);
+        startActivity(intent);
+
         if (action == 0) {
             // create new car
 
