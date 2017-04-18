@@ -25,7 +25,6 @@ import java.util.Date;
 /**
  * Selects date.
  */
-//SARAH
 
 public class SelectTimeActivity extends AppCompatActivity {
 
@@ -44,8 +43,19 @@ public class SelectTimeActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                int hour = timePicker.getCurrentHour();
+                int min = timePicker.getCurrentMinute();
+                String timeOfDay = " AM";
+                if (hour >= 12) {
+                    timeOfDay = " PM";
+                    hour = hour % 12;
+                }
+                if (hour == 0) {
+                    hour = 12;
+                }
+
                 Intent intent = getIntent();
-                intent.putExtra("updated_time", timePicker.getCurrentHour() + ":" + timePicker.getCurrentMinute());
+                intent.putExtra("updated_time", hour + ":" + min + timeOfDay);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
 
