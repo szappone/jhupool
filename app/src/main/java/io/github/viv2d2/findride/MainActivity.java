@@ -79,10 +79,8 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return "All Rides";
                 case 1:
-                    return "My Rides";
-                case 2:
                 default:
-                    return "Find Ride";
+                    return "My Rides";
             }
         }
     }
