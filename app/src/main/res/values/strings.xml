@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Find Ride</string>
+    <string name="app_name">jhuPool</string>
 
     <!-- arrow (to select options) -->
     <string name="arrow"> > </string>
