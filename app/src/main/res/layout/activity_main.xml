@@ -37,6 +37,7 @@
                 android:onClick="findRide"
                 android:textColor="#ffffff"
                 android:layout_alignParentRight="false"
+                android:paddingTop="17dp"
                 android:layout_gravity="center_vertical|fill_vertical|center|clip_vertical"
                 tools:textAlignment="center"
                 android:textAlignment="center" />

@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new SectionPagerAdapter(getSupportFragmentManager(), fragments));
         tabLayout.setupWithViewPager(viewPager);
 
+
+
     }
 
     public void findRide(View view) {
