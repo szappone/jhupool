@@ -450,7 +450,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
-                        android:text="Wed April 19, 7:30 pm" />
+                        android:text="Wed April 19, 7:30gi pm" />
 
                     <TextView
                         android:layout_width="match_parent"
