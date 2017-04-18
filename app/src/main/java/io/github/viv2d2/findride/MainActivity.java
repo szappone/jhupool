@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         // Making new tabs and adding to tabLayout
         tabLayout.addTab(tabLayout.newTab().setText("All Rides"));
         tabLayout.addTab(tabLayout.newTab().setText("My Rides"));
-        tabLayout.addTab(tabLayout.newTab().setText("Find Ride"));
 
         // Adding fragments to a list
         List<Fragment> fragments = new Vector<Fragment>();
