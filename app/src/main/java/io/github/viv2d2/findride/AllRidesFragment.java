@@ -15,4 +15,5 @@ public class AllRidesFragment extends Fragment {
         // Declare your first fragment here
         return inflater.inflate(R.layout.fragment_all_rides, container, false);
     }
+
 }

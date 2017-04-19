@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_main);
         // Initializing tab and pager views
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -52,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void findRide(View view) {
         Intent intent = new Intent(MainActivity.this, FindRideActivity.class);
+        startActivity(intent);
+    }
+
+    public void viewRide(View view) {
+        Intent intent = new Intent(MainActivity.this, ViewRideActivity.class);
+        intent.putExtra("action", 1);
+        intent.putExtra("from", "Homewood");
+        intent.putExtra("to", "BWI");
+        intent.putExtra("date", "Wed Apr 18 2017");
+        intent.putExtra("time", "7:00 PM");
+        intent.putExtra("riders", "2");
+        intent.putExtra("notes", "calling an Uber");
         startActivity(intent);
     }
 

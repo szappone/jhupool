@@ -46,6 +46,18 @@ public class FindRideResultsActivity extends AppCompatActivity {
         preview_riders.setText(user_riders + " riders");
     }
 
+    public void viewRide(View view) {
+        Intent intent = new Intent(FindRideResultsActivity.this, ViewRideActivity.class);
+        intent.putExtra("action", 1);
+        intent.putExtra("from", "Homewood");
+        intent.putExtra("to", "BWI");
+        intent.putExtra("date", "Wed Apr 18 2017");
+        intent.putExtra("time", "7:00 PM");
+        intent.putExtra("riders", "2");
+        intent.putExtra("notes", "calling an Uber");
+        startActivity(intent);
+    }
+
     public void createCar(View view) {
         Intent intent = new Intent(FindRideResultsActivity.this, ViewRideActivity.class);
         // code = 0 for creating new car (1 = join, 2 = leave)
