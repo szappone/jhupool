@@ -20,12 +20,13 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="246dp"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
                 android:elevation="4dp"
                 app:tabGravity="fill"
                 app:tabMaxWidth="0dp"
-                app:tabTextColor="#ffffff"
-                app:tabIndicatorColor="#ffffff" />
+                app:tabTextColor="@android:color/white"
+                app:tabIndicatorColor="@android:color/white"
+                app:tabBackground="@color/hopkinsBlue"
+                app:tabSelectedTextColor="@android:color/white"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -42,8 +43,23 @@
                 tools:textAlignment="center"
                 android:textAlignment="center" />
 
-
         </LinearLayout>
+        <!--
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:lineSpacingExtra="4dp"
+            android:text="Settings"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/find_ride2"
+            android:onClick="launchSettings"
+            android:textColor="#ffffff"
+            android:layout_alignParentRight="false"
+            android:paddingTop="17dp"
+            android:layout_gravity="center_vertical|fill_vertical|center|clip_vertical"
+            tools:textAlignment="center"
+            android:textAlignment="center" />
+            -->
 
 
         <android.support.v4.view.ViewPager
