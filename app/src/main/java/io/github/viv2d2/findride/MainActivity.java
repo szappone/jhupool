@@ -56,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void settings(View view) {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
     public void viewRide(View view) {
         Intent intent = new Intent(MainActivity.this, ViewRideActivity.class);
         intent.putExtra("action", 1);
