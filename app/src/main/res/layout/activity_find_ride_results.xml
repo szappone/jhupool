@@ -40,7 +40,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:textColor="@color/black"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -93,7 +93,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -106,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:textColor="@color/black"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -146,7 +146,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -159,7 +159,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -199,7 +199,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -212,7 +212,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:textColor="@color/black"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -252,7 +252,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -265,7 +265,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:textColor="@color/black"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -305,7 +305,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -318,7 +318,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:textColor="@color/black"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -358,7 +358,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -371,7 +371,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:textColor="@color/black"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -411,7 +411,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -423,7 +423,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -464,7 +464,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/travel" />
+                    android:src="@drawable/grocery" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -477,7 +477,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
-                        android:text="BWI -> Homewood"
+                        android:text="Whole Foods -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
@@ -485,7 +485,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
-                        android:text="Wed April 19, 7:30gi pm" />
+                        android:text="Wed April 19, 7:30 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -534,7 +534,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/travel" />
+                android:src="@drawable/grocery" />
 
             <LinearLayout
                 android:layout_width="0dp"
