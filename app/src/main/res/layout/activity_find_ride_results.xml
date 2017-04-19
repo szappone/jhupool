@@ -20,7 +20,7 @@
                 android:layout_height="32dp"
                 android:paddingTop="6dp"
                 android:paddingLeft="9dp"
-                android:text="RIDE RESULTS"
+                android:text="EXISTING RIDES"
                 android:textStyle="bold"
                 android:background="@color/hopkinsBlue"
                 android:textColor="@android:color/white"
@@ -29,6 +29,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="viewRide"
                 android:paddingTop="5dp"
                 android:orientation="horizontal">
 
@@ -51,6 +52,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
 
@@ -58,11 +60,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="Wed April 19, 4 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="4 riders" />
 
@@ -79,6 +83,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
+                android:onClick="viewRide"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -100,18 +105,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="Wed April 19, 4:35 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="4 riders" />
 
@@ -126,6 +134,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="viewRide"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:orientation="horizontal">
@@ -148,6 +157,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
@@ -156,11 +166,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="Wed April 19, 4:50 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="4 riders" />
 
@@ -177,6 +189,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
+                android:onClick="viewRide"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -198,6 +211,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
 
@@ -205,12 +219,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="Wed April 19, 5:30 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="4 riders" />
 
                 </LinearLayout>
@@ -224,6 +240,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="viewRide"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:orientation="horizontal">
@@ -247,18 +264,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="Wed April 19, 6 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="4 riders" />
 
@@ -273,6 +293,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="viewRide"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:orientation="horizontal">
@@ -296,18 +317,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="Wed April 19, 6:30 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="4 riders" />
 
@@ -323,6 +347,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
+                android:onClick="viewRide"
                 android:paddingBottom="2dp"
                 android:orientation="horizontal">
 
@@ -345,12 +370,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="Wed April 19, 6:45 pm" />
 
@@ -358,6 +385,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="2 riders" />
 
                 </LinearLayout>
@@ -373,6 +401,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
+                android:onClick="viewRide"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -395,17 +424,20 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:text="BWI -> Homewood"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
+                        android:textColor="@color/black"
                         android:text="Wed April 19, 7:10 pm" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="2 riders" />
 
@@ -422,6 +454,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
+                android:onClick="viewRide"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -442,6 +475,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="BWI -> Homewood"
                         android:textStyle="bold" />
@@ -449,11 +483,13 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:lineSpacingExtra="4dp"
                         android:text="Wed April 19, 7:30gi pm" />
 
                     <TextView
                         android:layout_width="match_parent"
+                        android:textColor="@color/black"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="4dp"
                         android:text="3 riders" />
@@ -510,6 +546,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
+                    android:textColor="@color/black"
                     android:id="@+id/create_fromTo"
                     android:textStyle="bold" />
 
@@ -517,12 +554,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
+                    android:textColor="@color/black"
                     android:id="@+id/create_dateTime" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
+                    android:textColor="@color/black"
                     android:id="@+id/create_riders"/>
 
             </LinearLayout>

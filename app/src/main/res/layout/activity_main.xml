@@ -20,6 +20,8 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="246dp"
                 android:layout_height="?attr/actionBarSize"
+
+                android:background="@color/hopkinsBlue"
                 android:elevation="4dp"
                 app:tabGravity="fill"
                 app:tabMaxWidth="0dp"
@@ -32,7 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:lineSpacingExtra="4dp"
-                android:text="@string/find_ride"
+                android:text="@string/find_ride_tab"
+                android:textSize="14dp"
                 android:background="@color/colorPrimaryDark"
                 android:id="@+id/find_ride"
                 android:onClick="findRide"
@@ -65,7 +68,51 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
 
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_gravity="bottom"
+        android:background="@color/hopkinsBlue"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="33dp"
+            android:lineSpacingExtra="4dp"
+            android:src="@drawable/travel_white"
+            android:background="@color/hopkinsBlue"
+            android:id="@+id/travel_only"
+            android:onClick="settings"
+            android:textColor="@android:color/white"
+            android:gravity="right" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="33dp"
+            android:lineSpacingExtra="4dp"
+            android:src="@drawable/grocery_white"
+            android:background="@color/hopkinsBlue"
+            android:id="@+id/grocery_only"
+            android:onClick="settings"
+            android:textColor="@android:color/white"
+            android:gravity="right" />
+
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="33dp"
+            android:lineSpacingExtra="4dp"
+            android:src="@drawable/settings"
+            android:background="@color/hopkinsBlue"
+            android:id="@+id/settings"
+            android:onClick="settings"
+            android:textColor="@android:color/white"
+            android:gravity="right" />
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

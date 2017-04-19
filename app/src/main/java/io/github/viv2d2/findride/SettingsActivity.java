@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Switch;
 
 /**
- * Created by willmatteson on 4/17/17.
+ * Settings page.
  */
 
 public class SettingsActivity extends AppCompatActivity {
+
     Switch notifications;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
