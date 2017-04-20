@@ -55,7 +55,6 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@+id/notifications_title"
         android:layout_marginTop="35dp"/>
     <TextView
@@ -65,7 +64,6 @@
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@id/notifications_input"
         android:layout_toRightOf="@+id/jhed_title"
         android:layout_marginTop="35dp" />
@@ -81,7 +79,6 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="30dp"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@+id/jhed_title"
         />
     <TextView
@@ -91,7 +88,6 @@
         android:background="@color/colorAccent"
         android:gravity="start|center_vertical"
         android:textAlignment="viewStart"
-        android:onClick="date"
         android:layout_below="@id/jhed_input"
         android:layout_toRightOf="@+id/jhed_title"
         />
