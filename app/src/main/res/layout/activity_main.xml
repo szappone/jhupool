@@ -90,7 +90,6 @@
             android:src="@drawable/globe"
             android:background="@android:color/darker_gray"
             android:id="@+id/global"
-            android:onClick="settings"
             android:textColor="@android:color/white"
             android:gravity="right" />
 
@@ -101,7 +100,6 @@
             android:src="@drawable/travel_white"
             android:background="@android:color/darker_gray"
             android:id="@+id/travel_only"
-            android:onClick="settings"
             android:textColor="@android:color/white"
             android:gravity="right" />
 
@@ -112,7 +110,6 @@
             android:src="@drawable/grocery_white"
             android:background="@android:color/darker_gray"
             android:id="@+id/grocery_only"
-            android:onClick="settings"
             android:textColor="@android:color/white"
             android:gravity="right" />
 
