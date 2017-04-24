@@ -21,4 +21,13 @@
         <item name="tabIndicatorHeight">3dp</item>
         <item name="android:background">?attr/colorPrimary</item>
     </style>
+    <style name="mySwitch" parent="Theme.AppCompat.Light">
+
+        <!-- You can also set colorControlNormal, colorControlActivated
+             colorControlHighlight, and colorSwitchThumbNormal. -->
+        <item name="colorControlActivated">@color/hopkinsBlue</item>
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <item name="android:colorForeground">#42221f1f
+        </item>
+    </style>
 </resources>
