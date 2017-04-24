@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "993312679401",
+    "firebase_url": "https://jhupool-57a8d.firebaseio.com",
+    "project_id": "jhupool-57a8d",
+    "storage_bucket": "jhupool-57a8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993312679401:android:aff7cfeb89f535e9",
+        "android_client_info": {
+          "package_name": "io.github.viv2d2.findride"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993312679401-3bh32idv4jfu1nltubgfdbio458v9odj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn__PMs1F-WrTxvJZqn280whV5VSlEcX0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

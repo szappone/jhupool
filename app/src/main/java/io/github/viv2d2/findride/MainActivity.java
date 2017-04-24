@@ -10,6 +10,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 import java.util.Vector;
 
@@ -23,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myDB = database.getReference("message");
+        myDB.setValue("Hello, World!");
 
         setContentView(R.layout.activity_main);
         // Initializing tab and pager views
