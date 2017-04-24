@@ -14,7 +14,6 @@ import java.util.Date;
 /**
  * Selects date.
  */
-//SARAH
 
 public class SelectDateActivity extends AppCompatActivity {
 
@@ -31,10 +30,10 @@ public class SelectDateActivity extends AppCompatActivity {
         calendar.setTimeInMillis(System.currentTimeMillis());
 
         // SET DATE PICKER TO WHATEVER WAS SENT IN FROM INTENT
-        dayOfWeek = "";
-        monthStr = "";
-        dayInt = 0;
-        yearInt = 0;
+        dayOfWeek = getIntent().getStringExtra("dayOfWeek");
+        monthStr = getIntent().getStringExtra("month");
+        dayInt = Integer.parseInt(getIntent().getStringExtra("day"));
+        yearInt = Integer.parseInt(getIntent().getStringExtra("year"));
 
         datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
 
