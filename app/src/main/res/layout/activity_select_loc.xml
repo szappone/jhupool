@@ -9,162 +9,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <!-- HOMEWOOD -->
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="32dp"
-        android:textSize="16dp"
-        android:id="@+id/homewood"
-        android:text="@string/loc_homewood"
-        android:background="@color/colorAccent"
-        android:layout_alignParentTop="true"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:onClick="homewood"/>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="32dp"
-        android:id="@+id/homewood_check"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_toRightOf="@id/homewood"
-        android:onClick="homewood"/>
-
-    <!-- BWI -->
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="32dp"
-        android:id="@+id/bwi"
-        android:text="@string/loc_bwi"
-        android:textSize="16dp"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:layout_below="@id/homewood"
-        android:onClick="bwi"/>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="32dp"
-        android:id="@+id/bwi_check"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_toRightOf="@id/bwi"
-        android:layout_below="@id/homewood_check"
-        android:onClick="bwi"/>
-
-    <!-- TRADER JOE'S -->
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="32dp"
-        android:id="@+id/tj"
-        android:text="@string/loc_tj"
-        android:textSize="16dp"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:layout_below="@id/bwi"
-        android:onClick="tj"/>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="32dp"
-        android:id="@+id/tj_check"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_toRightOf="@id/tj"
-        android:layout_below="@id/bwi_check"
-        android:onClick="tj"/>
-
-    <!-- WHOLE FOODS -->
-
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="32dp"
-        android:id="@+id/wf"
-        android:text="@string/loc_wf"
-        android:textSize="16dp"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:layout_below="@id/tj"
-        android:onClick="wf"/>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="32dp"
-        android:id="@+id/wf_check"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_toRightOf="@id/wf"
-        android:layout_below="@id/tj_check"
-        android:onClick="wf"/>
-
-    <!-- HMART -->
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="32dp"
-        android:id="@+id/hm"
-        android:text="@string/loc_hm"
-        android:textSize="16dp"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:layout_below="@id/wf"
-        android:onClick="hm"/>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="32dp"
-        android:id="@+id/hm_check"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_toRightOf="@id/hm"
-        android:layout_below="@id/wf_check"
-        android:onClick="hm"/>
-
-    <!-- SPECIAL -->
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="32dp"
-        android:id="@+id/special"
-        android:text="@string/loc_special"
-        android:textSize="16dp"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:layout_below="@id/hm"
-        android:onClick="special"/>
-
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="32dp"
-        android:id="@+id/special_check"
-        android:background="@color/colorAccent"
-        android:paddingRight="30dp"
-        android:gravity="end|center_vertical"
-        android:textAlignment="viewEnd"
-        android:layout_toRightOf="@id/special"
-        android:layout_below="@id/hm_check"
-        android:onClick="special"/>
-
     <!-- SAVE -->
     <Button
         android:text="@string/save"
@@ -177,4 +21,187 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <!-- HOMEWOOD -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:id="@+id/homewood"
+                android:text="@string/loc_homewood"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:textAlignment="viewStart"
+                android:onClick="homewood"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:id="@+id/homewood_check"
+                android:background="@color/colorAccent"
+                android:paddingRight="30dp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:onClick="homewood"/>
+        </LinearLayout>
+
+
+        <!-- BWI -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:id="@+id/bwi"
+                android:layout_weight="1"
+                android:text="@string/loc_bwi"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:textAlignment="viewStart"
+                android:onClick="bwi"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:id="@+id/bwi_check"
+                android:background="@color/colorAccent"
+                android:paddingRight="30dp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:onClick="bwi"/>
+        </LinearLayout>
+
+        <!-- TRADER JOE'S -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="32dp"
+                android:id="@+id/tj"
+                android:text="@string/loc_tj"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:textAlignment="viewStart"
+                android:onClick="tj"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:id="@+id/tj_check"
+                android:background="@color/colorAccent"
+                android:paddingRight="30dp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:onClick="tj"/>
+        </LinearLayout>
+
+        <!-- WHOLE FOODS -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:id="@+id/wf"
+                android:text="@string/loc_wf"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:textAlignment="viewStart"
+                android:onClick="wf"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:id="@+id/wf_check"
+                android:background="@color/colorAccent"
+                android:paddingRight="30dp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:onClick="wf"/>
+        </LinearLayout>
+
+        <!-- HMART -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:id="@+id/hm"
+                android:text="@string/loc_hm"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:layout_weight="1"
+                android:textAlignment="viewStart"
+                android:onClick="hm"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:id="@+id/hm_check"
+                android:background="@color/colorAccent"
+                android:paddingRight="30dp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:onClick="hm"/>
+        </LinearLayout>
+        <!-- SPECIAL -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:id="@+id/special"
+                android:layout_weight="1"
+                android:text="@string/loc_special"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:textAlignment="viewStart"
+                android:onClick="special"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:id="@+id/special_check"
+                android:background="@color/colorAccent"
+                android:paddingRight="30dp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:onClick="special"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
