@@ -29,7 +29,7 @@ public class SelectDateActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
 
-        // SET DATE PICKER TO WHATEVER WAS SENT IN FROM INTENT
+        // Set date on calendar to whatever was sent in through intent ??
         dayOfWeek = getIntent().getStringExtra("dayOfWeek");
         monthStr = getIntent().getStringExtra("month");
         dayInt = Integer.parseInt(getIntent().getStringExtra("day"));
