@@ -9,18 +9,41 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:backgroundTint="@color/hopkinsBlue"
+    android:background="@color/hopkinsBlue"
     tools:context="io.github.viv2d2.findride.LoginActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:contentDescription="icon"
-        android:src="@drawable/launch_icon"/>
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:text="jhuPool"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"/>
+        android:id="@+id/splash_screen"
+        android:src="@drawable/launch_splash"
+        android:layout_gravity="center"/>
+    <android.support.v7.widget.AppCompatCheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/facebook"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <EditText android:id="@+id/facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="JHU Email" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
+
+
 
 </LinearLayout>
