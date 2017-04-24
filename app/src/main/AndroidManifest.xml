@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".FindRideActivity"
-            android:label="@string/find_ride">
+            android:label="@string/find_ride"
+            android:screenOrientation="portrait">
 
             <!--
             <intent-filter>
@@ -26,24 +27,34 @@
             -->
         </activity>
         <activity android:name=".SelectLocActivity"
-            android:label="Location"/>
+            android:label="Location"
+            android:screenOrientation="portrait"/>
         <activity android:name=".NotesActivity"
-            android:label="@string/notes"/>
+            android:label="@string/notes"
+            android:screenOrientation="portrait"/>
         <activity android:name=".SelectDateActivity"
-            android:label="@string/date"/>
+            android:label="@string/date"
+            android:screenOrientation="portrait"/>
         <activity android:name=".SelectTimeActivity"
-            android:label="@string/time"/>
+            android:label="@string/time"
+            android:screenOrientation="portrait"/>
         <activity android:name=".FindRideResultsActivity"
-            android:label="Ride Results"/>
+            android:label="Ride Results"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ViewRideActivity"
-            android:label="View Ride"/>
+            android:label="View Ride"
+            android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".SettingsActivity"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".SplashActivity">
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

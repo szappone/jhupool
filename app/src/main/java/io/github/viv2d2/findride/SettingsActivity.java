@@ -1,8 +1,6 @@
 package io.github.viv2d2.findride;
 
 import android.os.Bundle;
-import android.content.Intent;
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Switch;
 
