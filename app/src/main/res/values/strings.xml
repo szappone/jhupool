@@ -49,4 +49,8 @@
     <string name="notifications">Notifications</string>
     <string name="jhed">JHED</string>
     <string name="facebook">Facebook</string>
+
+    <!-- Facebook Strings -->
+    <string name="facebook_app_id">1899802366954291</string>
+    <string name="account_kit_client_token">35e458bd10493ff107f068837013d582</string>
 </resources>
