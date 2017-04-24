@@ -102,6 +102,10 @@ public class FindRideActivity extends AppCompatActivity {
     public void date(View view) {
         // create new intent
         Intent intent = new Intent(this, SelectDateActivity.class);
+        intent.putExtra("dayOfWeek", date.substring(0,3));
+        intent.putExtra("month", date.substring(4,7));
+        intent.putExtra("day", date.substring(8,10));
+        intent.putExtra("year", date.substring(11,15));
         startActivityForResult(intent, 2);
         //code=2
     }
