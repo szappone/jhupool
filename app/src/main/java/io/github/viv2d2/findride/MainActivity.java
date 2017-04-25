@@ -10,13 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -30,29 +23,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myDB = database.getReference();
-        myDB.child("drives").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List rides = new ArrayList<>();
-                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
-                    //Ride drive = noteDataSnapshot.getValue(Ride.class);
-                    //rides.add(Ride);
-                }
-                //adapter.updateList(rides);
-            }
-               // String value = dataSnapshot.getValue(String.class);
-                //Log.d("TAG", "Value is: " + value);
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                //Log.w("TAG", "Failed to read value.", error.toException());
-            }
-        });
-        //myDB.child("drives").setValue("drive1");
-        //System.out.println("DRIVE1: " + myDB.child("Drive1").child("drive"));
 
         setContentView(R.layout.activity_main);
         // Initializing tab and pager views
