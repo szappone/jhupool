@@ -104,8 +104,8 @@ public class ViewRideActivity extends AppCompatActivity {
             int id = 0;
             /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017",
                     "8:30 AM", 3, "riders", "Notes");*/
-
-            Ride ride = new Ride(from, to, date, time, Integer.parseInt(riders), riders, notes);
+            //System.out.println(from + " " + to + " " + date + " " + time + " riders: " + riders + " notes: " +notes);
+            Ride ride = new Ride(from, to, date, time, riders, notes);
             myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
            // id++;
            // myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);

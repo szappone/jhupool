@@ -12,7 +12,7 @@ public class Ride {
     private String date;
     private String time;
     private ArrayList<String> riders;
-    private ArrayList<String []> notes;
+    private ArrayList<ArrayList<String>> notes;
     private String category;
 
     /** Ride constructor (empty). */
@@ -28,8 +28,10 @@ public class Ride {
         this.time = ti;
         this.riders = new ArrayList<String>();
         this.riders.add(r);
-        this.notes = new ArrayList<String []>();
-        String s [] = {r, n};
+        this.notes = new ArrayList<ArrayList<String>>();
+        ArrayList<String> s = new ArrayList<String>();
+        s.add(r);
+        s.add(n);
         this.notes.add(s);
 
         // set category
@@ -49,13 +51,13 @@ public class Ride {
     public String getTime() { return this.time; }
     public int getNumRiders() { return this.riders.size(); }
     public ArrayList<String> getRiders() { return this.riders; }
-    public ArrayList<String []> getNotes() { return this.notes; }
+    public ArrayList<ArrayList<String>> getNotes() { return this.notes; }
 
     /** Returns note corresponding to given rider r. */
     public String getNoteFromRider(String r) {
         for (int i = 0; i < this.notes.size(); ++i) {
-            if (this.notes.get(i)[0].equals(r)) {
-                return this.notes.get(i)[1];
+            if (this.notes.get(i).get(0).equals(r)) {
+                return this.notes.get(i).get(1);
             }
         }
         return "";
@@ -64,8 +66,8 @@ public class Ride {
     /** Sets note n for a specific rider r. */
     public boolean setNoteToRider(String r, String n) {
         for (int i = 0; i < this.notes.size(); ++i) {
-            if (this.notes.get(i)[0].equals(r)) {
-                this.notes.get(i)[1] = n;
+            if (this.notes.get(i).get(0).equals(r)) {
+                this.notes.get(i).set(1, n);
                 return true;
             }
         }
@@ -75,8 +77,8 @@ public class Ride {
     /** Adds note n to the notes of rider r. */
     public boolean addNoteToRider(String r, String n) {
         for (int i = 0; i < this.notes.size(); ++i) {
-            if (this.notes.get(i)[0].equals(r)) {
-                this.notes.get(i)[1] += "\n" + n;
+            if (this.notes.get(i).get(0).equals(r)) {
+                this.notes.get(i).set(1, this.notes.get(i).get(1) + "\n" + n);
                 return true;
             }
         }
@@ -86,7 +88,9 @@ public class Ride {
     /** Adds rider to rider array, notes array. */
     public void addRider(String r, String n) {
         this.riders.add(r);
-        String [] s = {r, n};
+        ArrayList<String> s = new ArrayList<String>();
+        s.add(r);
+        s.add(n);
         this.notes.add(s);
     }
 
@@ -101,6 +105,4 @@ public class Ride {
         }
         return false;
     }
-
-
 }
