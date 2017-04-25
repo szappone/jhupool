@@ -6,6 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.view.View;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Details for a ride.
  */
@@ -89,6 +98,34 @@ public class ViewRideActivity extends AppCompatActivity {
 
             // ADD DIALOG TO CONFIRM RIDERS, NOTES
             // create new car
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myDB = database.getReference();
+            //List riders = Arrays.asList("Vivian", "Sarah", "Will");
+            int id = 0;
+            /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017",
+                    "8:30 AM", 3, "riders", "Notes");*/
+            //System.out.println(from + " " + to + " " + date + " " + time + " riders: " + riders + " notes: " +notes);
+            Ride ride = new Ride(from, to, date, time, riders, notes);
+            myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
+           // id++;
+           // myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
+
+            myDB.child("drives").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    List rides = new ArrayList<>();
+                    for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
+                        Ride drive = noteDataSnapshot.getValue(Ride.class);
+                        rides.add(drive);
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                }
+            });
+
+
 
         } else if (action == 1) {
             // join car

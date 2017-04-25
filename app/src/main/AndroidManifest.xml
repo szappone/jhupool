@@ -40,8 +40,6 @@
             -->
         </activity>
 
-
-
         <activity android:name=".SelectLocActivity"
             android:label="Location"
             android:screenOrientation="portrait"/>
@@ -62,7 +60,12 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".SettingsActivity"
             android:screenOrientation="portrait"/>
         <activity
@@ -71,10 +74,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".SplashActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
