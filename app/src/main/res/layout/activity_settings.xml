@@ -9,85 +9,107 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <!-- Notifications -->
-    <TextView
-        android:text="@string/notifications"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:id="@+id/notifications_title"
-        android:background="@color/colorAccent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart" />
 
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:id="@+id/notifications_input"
-        android:background="@color/colorAccent"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/notifications_title"
-        android:gravity="start|center_vertical"
-        android:textAlignment="viewStart" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-   <Switch
-       android:layout_width="wrap_content"
-       android:layout_height="40dp"
-       android:theme="@style/mySwitch"
-       android:id="@+id/switch_notifications"
-       android:layout_alignRight="@+id/notifications_input"
-       />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
 
+            <!-- Notifications -->
+            <TextView
+                android:text="@string/notifications"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:id="@+id/notifications_title"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:layout_weight=".5"
+                android:textAlignment="viewStart" />
 
-    <!-- figure out how to center button without dp -->
-    <!-- JHED -->
-    <TextView
-        android:text="@string/jhed"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:id="@+id/jhed_title"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:layout_below="@+id/notifications_title"
-        android:layout_marginTop="35dp"/>
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:id="@+id/jhed_input"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:textAlignment="viewStart"
-        android:layout_below="@id/notifications_input"
-        android:layout_toRightOf="@+id/jhed_title"
-        android:layout_marginTop="35dp" />
+            <Switch
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:theme="@style/mySwitch"
+                android:layout_weight=".5"
+                android:gravity="end|center_vertical"
+                android:paddingRight="30dp"
+                android:textAlignment="viewEnd"
+                android:background="@color/colorAccent"
+                android:id="@+id/switch_notifications" />
+        </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <!-- Facebook -->
-    <TextView
-        android:text="@string/facebook"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:id="@+id/facebook_title"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="30dp"
-        android:textAlignment="viewStart"
-        android:layout_below="@+id/jhed_title"
-        />
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:id="@+id/facebook_input"
-        android:background="@color/colorAccent"
-        android:gravity="start|center_vertical"
-        android:textAlignment="viewStart"
-        android:layout_below="@id/jhed_input"
-        android:layout_toRightOf="@+id/jhed_title"
-        />
+        <!-- JHED -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
+            <TextView
+                android:text="@string/jhed"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:paddingLeft="30dp"
+                android:id="@+id/jhed_title"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:id="@+id/jhed_input"
+                android:text="hsolo1"
+                android:background="@color/colorAccent"
+                android:gravity="end|center_vertical"
+                android:paddingRight="30dp"
+                android:textAlignment="viewEnd"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <!-- FACEBOOK -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:text="@string/facebook"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:id="@+id/facebook_title"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="30dp"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:text="Han Solo"
+                android:id="@+id/facebook_input"
+                android:background="@color/colorAccent"
+                android:gravity="end|center_vertical"
+                android:paddingRight="30dp"
+                android:textAlignment="viewEnd"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

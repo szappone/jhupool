@@ -14,13 +14,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:weightSum="3"
             android:orientation="horizontal">
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tab_layout"
-                android:layout_width="246dp"
+                android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"
-
+                android:layout_weight="2"
                 android:background="@color/hopkinsBlue"
                 android:elevation="4dp"
                 app:tabGravity="fill"
@@ -31,10 +32,11 @@
                 app:tabSelectedTextColor="@android:color/white"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"
                 android:lineSpacingExtra="4dp"
                 android:text="@string/find_ride_tab"
+                android:layout_weight="1"
                 android:textSize="14dp"
                 android:background="@color/colorPrimaryDark"
                 android:id="@+id/find_ride"
@@ -47,22 +49,6 @@
                 android:textAlignment="center" />
 
         </LinearLayout>
-        <!--
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:lineSpacingExtra="4dp"
-            android:text="Settings"
-            android:background="@color/colorPrimaryDark"
-            android:id="@+id/find_ride2"
-            android:onClick="launchSettings"
-            android:textColor="#ffffff"
-            android:layout_alignParentRight="false"
-            android:paddingTop="17dp"
-            android:layout_gravity="center_vertical|fill_vertical|center|clip_vertical"
-            tools:textAlignment="center"
-            android:textAlignment="center" />
-            -->
 
 
         <android.support.v4.view.ViewPager
@@ -77,10 +63,11 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_gravity="bottom"
-        android:background="@android:color/darker_gray"
+        android:background="@color/lightGray"
         android:paddingTop="7dp"
         android:paddingBottom="7dp"
         android:orientation="horizontal"
+        android:weightSum="1"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -88,30 +75,30 @@
             android:layout_height="30dp"
             android:lineSpacingExtra="4dp"
             android:src="@drawable/globe"
-            android:background="@android:color/darker_gray"
+            android:background="@color/lightGray"
             android:id="@+id/global"
-            android:textColor="@android:color/white"
-            android:gravity="right" />
+            android:layout_weight=".25"
+            android:textColor="@android:color/white"/>
 
         <ImageView
             android:layout_width="88dp"
             android:layout_height="30dp"
             android:lineSpacingExtra="4dp"
             android:src="@drawable/travel_white"
-            android:background="@android:color/darker_gray"
+            android:background="@color/lightGray"
             android:id="@+id/travel_only"
-            android:textColor="@android:color/white"
-            android:gravity="right" />
+            android:layout_weight=".25"
+            android:textColor="@android:color/white"/>
 
         <ImageView
             android:layout_width="88dp"
             android:layout_height="30dp"
             android:lineSpacingExtra="4dp"
             android:src="@drawable/grocery_white"
-            android:background="@android:color/darker_gray"
+            android:background="@color/lightGray"
             android:id="@+id/grocery_only"
-            android:textColor="@android:color/white"
-            android:gravity="right" />
+            android:layout_weight=".25"
+            android:textColor="@android:color/white"/>
 
 
         <ImageView
@@ -119,10 +106,10 @@
             android:layout_height="30dp"
             android:lineSpacingExtra="4dp"
             android:src="@drawable/settings"
-            android:background="@android:color/darker_gray"
+            android:background="@color/lightGray"
             android:id="@+id/settings"
             android:onClick="settings"
-            android:textColor="@android:color/white"
-            android:gravity="right" />
+            android:layout_weight=".25"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

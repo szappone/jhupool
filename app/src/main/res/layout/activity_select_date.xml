@@ -9,11 +9,16 @@
     android:paddingTop="15dp"
     android:textColorPrimary="@color/hopkinsBlue"
     android:backgroundTint="@color/hopkinsBlue">
+
     <DatePicker
         android:id="@+id/date_picker"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:calendarViewShown="true"/>
+        android:calendarViewShown="true"
+        android:yearListSelectorColor="@color/hopkinsBlue"
+        android:calendarTextColor="@color/black"
+        android:backgroundTint="@color/hopkinsBlue"
+        android:dayOfWeekBackground="@color/hopkinsBlue" />
 
     <!-- SAVE -->
     <Button
