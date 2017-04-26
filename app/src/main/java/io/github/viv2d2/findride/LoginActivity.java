@@ -1,12 +1,8 @@
 package io.github.viv2d2.findride;
 
 import android.content.Intent;
-<<<<<<< HEAD
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
-=======
 import android.graphics.PorterDuff;
->>>>>>> 3e157b3b9b52124a166120419526af2cf4a71f89
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,7 +19,6 @@ import com.facebook.login.widget.LoginButton;
 
 import java.util.ArrayList;
 
-import static android.app.PendingIntent.getActivity;
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 

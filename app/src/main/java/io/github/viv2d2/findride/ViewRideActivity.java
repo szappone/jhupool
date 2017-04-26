@@ -28,7 +28,6 @@ public class ViewRideActivity extends AppCompatActivity {
     private String riders;
     private String notes;
     private int action;
-
     private TextView input_from;
     private TextView input_to;
     private TextView input_date;
@@ -101,14 +100,20 @@ public class ViewRideActivity extends AppCompatActivity {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myDB = database.getReference();
             //List riders = Arrays.asList("Vivian", "Sarah", "Will");
-            Random r = new Random();
+
 
             int id = 0;
             /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017",
                     "8:30 AM", 3, "riders", "Notes");*/
             //System.out.println(from + " " + to + " " + date + " " + time + " riders: " + riders + " notes: " +notes);
             Ride ride = new Ride(from, to, date, time, riders, notes);
-            myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
+            //myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
+
+
+            ride.setID(myDB.child("Drive_Feed").push().getKey());
+            myDB.child("Drive_Feed").child(ride.getID()).setValue(ride);
+            finish();
+
            // id++;
            // myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
 
