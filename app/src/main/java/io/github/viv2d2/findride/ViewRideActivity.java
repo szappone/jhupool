@@ -101,6 +101,8 @@ public class ViewRideActivity extends AppCompatActivity {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myDB = database.getReference();
             //List riders = Arrays.asList("Vivian", "Sarah", "Will");
+            Random r = new Random();
+
             int id = 0;
             /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017",
                     "8:30 AM", 3, "riders", "Notes");*/

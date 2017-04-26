@@ -71,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
         jhedInput = (EditText) findViewById(R.id.jhedInput);
-        jhedInput.getBackground().mutate().setColorFilter(getResources().getColor(R.color.com_facebook_blue), PorterDuff.Mode.SRC_ATOP);
 
 
         JHEDS = new ArrayList<>();
