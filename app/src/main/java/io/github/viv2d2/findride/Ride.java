@@ -52,6 +52,7 @@ public class Ride {
     public int getNumRiders() { return this.riders.size(); }
     public ArrayList<String> getRiders() { return this.riders; }
     public ArrayList<ArrayList<String>> getNotes() { return this.notes; }
+    public String getCategory() { return this.category; }
 
     /** Returns note corresponding to given rider r. */
     public String getNoteFromRider(String r) {
