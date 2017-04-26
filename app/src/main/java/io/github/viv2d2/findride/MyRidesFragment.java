@@ -5,14 +5,46 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * User's rides.
  */
 public class MyRidesFragment extends Fragment {
+
+    protected static ArrayList<Ride> myRides;
+    protected static RideAdapter rideAdapter;
+    private ListView myRidesView;
+    private View rootView;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Declare your first fragment here
-        return inflater.inflate(R.layout.fragment_my_rides, container, false);
+        rootView =  inflater.inflate(R.layout.fragment_my_rides, container, false);
+        myRidesView = (ListView) rootView.findViewById(R.id.my_rides);
+
+        return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Populate with rides
+        myRides = new ArrayList<Ride>();
+        Ride r1 = new Ride("Homewood", "Whole Foods", "Sat May 6, 2017", "03:42 PM", "Viv", "it was the best of times");
+        myRides.add(r1);
+
+        // Set up adapter
+        rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
+        myRidesView.setAdapter(rideAdapter);
+
     }
 }
