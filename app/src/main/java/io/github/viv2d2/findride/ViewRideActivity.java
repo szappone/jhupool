@@ -34,9 +34,7 @@ public class ViewRideActivity extends AppCompatActivity {
     private TextView input_time;
     private TextView input_riders;
     private TextView input_notes;
-
     private TextView riders_info;
-
     private TextView action_button;
 
     @Override
@@ -82,10 +80,8 @@ public class ViewRideActivity extends AppCompatActivity {
             // leave car
             action_button.setText("Leave Car");
         }
-
         // Set rider info
         riders_info.setText("Sarah                  24 mutual");
-
     }
 
     public void action(View view) {
@@ -94,28 +90,18 @@ public class ViewRideActivity extends AppCompatActivity {
 
         if (action == 0) {
             // create new car
-
             // ADD DIALOG TO CONFIRM RIDERS, NOTES
-            // create new car
+
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myDB = database.getReference();
-            //List riders = Arrays.asList("Vivian", "Sarah", "Will");
-
-
-            int id = 0;
-            /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017",
-                    "8:30 AM", 3, "riders", "Notes");*/
+            /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017", "8:30 AM", 3, "riders", "Notes");*/
             //System.out.println(from + " " + to + " " + date + " " + time + " riders: " + riders + " notes: " +notes);
             Ride ride = new Ride(from, to, date, time, riders, notes);
             //myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
 
-
             ride.setID(myDB.child("Drive_Feed").push().getKey());
             myDB.child("Drive_Feed").child(ride.getID()).setValue(ride);
             finish();
-
-           // id++;
-           // myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
 
             myDB.child("drives").addValueEventListener(new ValueEventListener() {
                 @Override
@@ -133,17 +119,13 @@ public class ViewRideActivity extends AppCompatActivity {
             });
 
 
-
         } else if (action == 1) {
-            // join car
 
+            // join car - add user to car
             // ADD DIALOG TO CONFIRM RIDERS, NOTES
-            // add user to car
 
         } else { // action == 2
-            // leave car
-
-            // remove user from car/delete car
+            // leave car - remove user from car/delete car
         }
     }
 }
