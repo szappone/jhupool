@@ -23,12 +23,9 @@ import com.facebook.login.widget.LoginButton;
 
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 import static android.app.PendingIntent.getActivity;
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
-=======
->>>>>>> 3e157b3b9b52124a166120419526af2cf4a71f89
 
 public class LoginActivity extends AppCompatActivity {
     LoginButton loginButton;
@@ -71,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
         jhedInput = (EditText) findViewById(R.id.jhedInput);
+        jhedInput.getBackground().mutate().setColorFilter(getResources().getColor(R.color.com_facebook_blue), PorterDuff.Mode.SRC_ATOP);
+
 
 
         JHEDS = new ArrayList<>();
