@@ -1,6 +1,7 @@
 package io.github.viv2d2.findride;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.facebook.login.widget.LoginButton;
 import java.util.ArrayList;
 
 import static android.app.PendingIntent.getActivity;
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -35,6 +37,12 @@ public class LoginActivity extends AppCompatActivity {
     public static int APP_REQUEST_CODE = 99;
     ArrayList<String> JHEDS;
     boolean fbIn;
+    boolean JHEDIn;
+
+
+    private static boolean fbLoggedin;
+    private static boolean jhedLoggedin;
+
 
     EditText jhedInput;
     @Override
@@ -43,6 +51,19 @@ public class LoginActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
         //setContentView(R.layout.activity_login);
+
+        //checking if already logged in
+        final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
+
+
+
+        fbIn = login.getBoolean("Facebook",false);
+        JHEDIn= login.getBoolean("JHED",false);
+        //could do some stuff w/ auto populating the field?
+
+
+
+
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
@@ -61,7 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                 //);
 
                 //boolean that checks that facebook login is true
+                SharedPreferences.Editor edit = login.edit();
                 fbIn = true;
+                edit.putBoolean("Facebook",true);
+                edit.commit();
             }
 
             @Override
@@ -81,8 +105,13 @@ public class LoginActivity extends AppCompatActivity {
         toNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!(JHEDIn))
+                    JHEDIn=JHEDS.contains(jhedInput.getText().toString());
 
-                if (JHEDS.contains(jhedInput.getText().toString())){
+                if (JHEDIn){
+                    SharedPreferences.Editor edit = login.edit();
+                    edit.putBoolean("JHED",true);
+                    edit.commit();
                     if (fbIn) {
                         Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                         LoginActivity.this.startActivity(mainIntent);
