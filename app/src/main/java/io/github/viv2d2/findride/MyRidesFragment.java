@@ -7,6 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 /**
@@ -41,6 +47,31 @@ public class MyRidesFragment extends Fragment {
         myRides = new ArrayList<Ride>();
         Ride r1 = new Ride("Homewood", "Whole Foods", "Sat May 6, 2017", "03:42 PM", "Viv", "it was the best of times");
         myRides.add(r1);
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myDB = database.getReference();
+
+        myDB.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Ride ride = (Ride) dataSnapshot.getValue();
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    Ride ride = child.getValue(Ride.class);
+                    myRides.add(ride);
+                    System.out.println("VALUE: " + ride);
+                    //dataSnapshot.getValue();
+                    //myRides.add(ride);*/
+                    // do your stuff here with value
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+
+            }
+        });
 
         // Set up adapter
         rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
