@@ -1,9 +1,14 @@
 package io.github.viv2d2.findride;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
+=======
+import android.graphics.PorterDuff;
+>>>>>>> 3e157b3b9b52124a166120419526af2cf4a71f89
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,21 +18,17 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.accountkit.AccountKit;
-
-import com.facebook.accountkit.AccountKit;
-import com.facebook.accountkit.AccessToken;
-import com.facebook.accountkit.ui.AccountKitActivity;
-import com.facebook.accountkit.ui.AccountKitConfiguration;
-import com.facebook.accountkit.ui.LoginType;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import static android.app.PendingIntent.getActivity;
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
+=======
+>>>>>>> 3e157b3b9b52124a166120419526af2cf4a71f89
 
 public class LoginActivity extends AppCompatActivity {
     LoginButton loginButton;
@@ -48,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //getActionBar().hide();
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
         //setContentView(R.layout.activity_login);
@@ -68,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
         jhedInput = (EditText) findViewById(R.id.jhedInput);
+        jhedInput.getBackground().mutate().setColorFilter(getResources().getColor(R.color.com_facebook_blue), PorterDuff.Mode.SRC_ATOP);
+
 
         JHEDS = new ArrayList<>();
         JHEDS.add("wmattes2"); JHEDS.add("vtsai5"); JHEDS.add("szappon1"); JHEDS.add("rkinney4");

@@ -60,15 +60,16 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity android:name=".SettingsActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:label="@string/title_activity_login"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity android:name=".SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
