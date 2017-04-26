@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Ride {
+    private String id;
     private String from;
     private String to;
     private String date;
@@ -22,6 +23,7 @@ public class Ride {
 
     /** Ride constructor. */
     public Ride(String f, String t, String d, String ti, String r, String n) {
+        this.id = "";
         this.from = f;
         this.to = t;
         this.date = d;
@@ -44,7 +46,13 @@ public class Ride {
         }
     }
 
+
+    public void setID(String id) {
+        this.id = id;
+    }
+
     /** Getters. */
+    public String getID() { return this.id; }
     public String getFrom() { return this.from; }
     public String getTo() { return this.to; }
     public String getDate() { return this.date; }
