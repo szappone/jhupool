@@ -1,7 +1,9 @@
 package io.github.viv2d2.findride;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,7 @@ public class MyRidesFragment extends Fragment {
     protected static RideAdapter rideAdapter;
     private ListView myRidesView;
     private View rootView;
+    private String jhed;
 
     private Ride currRide;
 
@@ -61,6 +64,10 @@ public class MyRidesFragment extends Fragment {
             }
         });
 
+        // Shared pref
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        jhed = settings.getString("JHED_ID", "");
+
         return rootView;
     }
 
@@ -80,7 +87,9 @@ public class MyRidesFragment extends Fragment {
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
-                    myRides.add(ride);
+                    if (ride.inCar(jhed)) {
+                        myRides.add(ride);
+                    }
                 }
 
                 rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
