@@ -16,7 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Shows results (from matching algorithm) and user's car (from search).
@@ -40,6 +43,7 @@ public class FindRideResultsActivity extends AppCompatActivity {
     private ListView resultsView;
     private View rootView;
     private String jhed;
+    static int THREE_HOURS = 10800000;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,23 +84,9 @@ public class FindRideResultsActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 rideResults = new ArrayList<Ride>();
-
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
-
-
-                    if (user_date.compareTo(ride.getDate()) == 0) {
-
-                     /* System.out.println("from1: " + user_from + "from2: " + ride.getFrom());
-                     System.out.println("to1: " + user_to + "to2: " + ride.getTo());
-                        if (user_from.equals(ride.getFrom()) && user_to.equals(ride.getTo())) {*/
-                            if (checkWithinTimeFrame(user_time, ride.getTime())) {
-                                if (!ride.inCar(jhed)) {
-                                    rideResults.add(ride);
-                                }
-                            }
-                        //}
-                    }
+                    rideResults = runMatchingAlgorithm(ride);
                 }
 
                 resultAdapter = new RideAdapter(FindRideResultsActivity.this, R.layout.ride_preview, rideResults);
@@ -140,11 +130,40 @@ public class FindRideResultsActivity extends AppCompatActivity {
         });
     }
 
+    public ArrayList<Ride> runMatchingAlgorithm(Ride ride) {
+        if (user_date.equals(ride.getDate())) {
+            System.out.println("from1: " + user_from + " to: " + user_to);
+            System.out.println("from2: " + ride.getFrom() + " to2: " + ride.getTo());
+            if (user_from.equals(ride.getFrom()) && user_to.equals(ride.getTo())) {
+                System.out.println("MATCH");
+                if (checkWithinTimeFrame(user_time, ride.getTime())) {
+                    if (!ride.inCar(jhed)) {
+                        rideResults.add(ride);
+                    }
+                }
+            } else {
+                System.out.println("NO");
+            }
+        }
+        return rideResults;
+    }
+
     public boolean checkWithinTimeFrame(String requested, String possible) {
         System.out.println("Requested Time: " + requested);
         System.out.println("Possible Match: " + possible);
+        SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
+        Date date1 = null;
+        Date date2 = null;
+        try {
+            date1 = parseFormat.parse(requested);
+            date2 = parseFormat.parse(possible);
+        } catch (ParseException p) {
 
-        return true;
+        }
+        System.out.println("Elapsed D1 - D2: " + Math.abs(date1.getTime() - date2.getTime()));
+        boolean ifInBounds = Math.abs(date1.getTime() - date2.getTime()) < THREE_HOURS;
+        return ifInBounds;
     }
 
     public void viewRide(View view) {
