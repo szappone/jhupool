@@ -1,10 +1,12 @@
 package io.github.viv2d2.findride;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -26,6 +28,8 @@ public class MyRidesFragment extends Fragment {
     private ListView myRidesView;
     private View rootView;
 
+    private Ride currRide;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,26 @@ public class MyRidesFragment extends Fragment {
         rootView =  inflater.inflate(R.layout.fragment_my_rides, container, false);
         myRidesView = (ListView) rootView.findViewById(R.id.my_rides);
 
+        myRidesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object temp = myRidesView.getItemAtPosition(position);
+                Ride currRide = (Ride) temp;
+
+                Intent intent = new Intent(getActivity(), ViewRideActivity.class);
+                intent.putExtra("action", 2); // leave car
+                intent.putExtra("from", currRide.getFrom());
+                intent.putExtra("to", currRide.getTo());
+                intent.putExtra("date", currRide.getDate());
+                intent.putExtra("time", currRide.getTime());
+                intent.putExtra("riders", currRide.getNumRiders());
+                intent.putExtra("riderObjects", currRide.getRiders());
+
+                startActivity(intent);
+
+            }
+        });
+
         return rootView;
     }
 
@@ -46,9 +70,6 @@ public class MyRidesFragment extends Fragment {
 
         // Populate with rides
         myRides = new ArrayList<Ride>();
-        Rider ron = new Rider("rwease1", "Ron", 2, "mum always said midnight");
-        Ride r1 = new Ride("Homewood", "Whole Foods", "Sat May 6, 2017", "03:42 PM", ron);
-
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myDB = database.getReference();
@@ -78,5 +99,10 @@ public class MyRidesFragment extends Fragment {
         rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
         myRidesView.setAdapter(rideAdapter);
 
+    }
+
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        currRide = rideAdapter.getItem(position);
+        System.out.println(currRide.getTime());
     }
 }

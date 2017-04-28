@@ -69,7 +69,6 @@ public class ViewRideActivity extends AppCompatActivity {
         date = getIntent().getStringExtra("date");
         time = getIntent().getStringExtra("time");
         riders = getIntent().getStringExtra("riders");
-        notes = getIntent().getStringExtra("notes");
         riderObjects = (ArrayList<Rider>) getIntent().getSerializableExtra("riderObjects");
 
         // Set fields

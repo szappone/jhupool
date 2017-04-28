@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,8 @@ import java.util.Vector;
  */
 
 public class MainActivity extends AppCompatActivity {
+
+    private int c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+/*
     public void viewRide(View view) {
+
         Intent intent = new Intent(MainActivity.this, ViewRideActivity.class);
         intent.putExtra("action", 1);
         intent.putExtra("from", "Homewood");
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("riderObjects", riders);
 
         startActivity(intent);
-    }
+    }*/
 
 
     private class SectionPagerAdapter extends FragmentPagerAdapter {
@@ -111,4 +115,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 }
