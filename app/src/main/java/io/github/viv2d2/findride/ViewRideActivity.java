@@ -45,6 +45,8 @@ public class ViewRideActivity extends AppCompatActivity {
     private ListView notesView;
     protected static NotesAdapter notesAdapter;
 
+    private ArrayList<Rider> riderObjects;
+
     private Rider r1;
 
     @Override
@@ -68,6 +70,7 @@ public class ViewRideActivity extends AppCompatActivity {
         time = getIntent().getStringExtra("time");
         riders = getIntent().getStringExtra("riders");
         notes = getIntent().getStringExtra("notes");
+        riderObjects = (ArrayList<Rider>) getIntent().getSerializableExtra("riderObjects");
 
         // Set fields
         input_from.setText(from);
@@ -79,19 +82,19 @@ public class ViewRideActivity extends AppCompatActivity {
         if (action != 0) {
             // Set up rider adapter
             ridersView = (ListView) findViewById(R.id.riders);
-            r = new ArrayList<Rider>();
+            /* r = new ArrayList<Rider>();
             Rider r1 = new Rider("vtsai5", "Vivian", 2, "it was the best of times");
             Rider r2 = new Rider("szappon1", "Sarah", 1, "it was the worst of times");
             Rider r3 = new Rider("wmattes2", "Will", 1, "it was the age of wisdom");
             r.add(r1);
             r.add(r2);
-            r.add(r3);
-            riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
+            r.add(r3); */
+            riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, riderObjects);
             ridersView.setAdapter(riderAdapter);
 
             // Set up notes adapter
             notesView = (ListView) findViewById(R.id.notes);
-            notesAdapter = new NotesAdapter(ViewRideActivity.this, R.layout.notes_view, r);
+            notesAdapter = new NotesAdapter(ViewRideActivity.this, R.layout.notes_view, riderObjects);
             notesView.setAdapter(notesAdapter);
         }
 

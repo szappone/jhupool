@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -70,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("time", "7:00 PM");
         intent.putExtra("riders", "2");
         intent.putExtra("notes", "calling an Uber");
+
+        ArrayList<Rider> riders = new ArrayList<Rider>();
+        Rider ron = new Rider("rwease1", "Ron", 2, "mum always said midnight");
+        riders.add(ron);
+        ArrayList<String> sdfjkl = new ArrayList<String>();
+        intent.putExtra("riderObjects", riders);
+
         startActivity(intent);
     }
 

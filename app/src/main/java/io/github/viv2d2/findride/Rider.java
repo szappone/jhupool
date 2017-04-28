@@ -1,12 +1,13 @@
 package io.github.viv2d2.findride;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Ride object.
  */
 
-public class Rider {
+public class Rider implements Serializable {
     private String jhed;
     private String facebook;
     private int numGuests;
