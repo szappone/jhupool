@@ -98,6 +98,9 @@ public class ViewRideActivity extends AppCompatActivity {
         }
 
         if (action == 0) {
+            // Notes
+            notes = getIntent().getStringExtra("notes");
+
             // Set up rider adapter
             ridersView = (ListView) findViewById(R.id.riders);
             r = new ArrayList<Rider>();
