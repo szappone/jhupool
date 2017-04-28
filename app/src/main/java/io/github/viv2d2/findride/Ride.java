@@ -99,6 +99,8 @@ public class Ride implements Serializable {
     /** Deletes rider from rider array, notes array. */
     public boolean deleteRider(String r) {
         for (int i = 0; i < this.riders.size(); ++i) {
+            System.out.println("Looking at " + i);
+            System.out.println("\t " + this.riders.get(i).getJHED() + " vs. " + r);
             if (this.riders.get(i).getJHED().equals(r)) {
                 this.numRiders -= this.riders.get(i).getNumTotal();
                 this.riders.remove(i);

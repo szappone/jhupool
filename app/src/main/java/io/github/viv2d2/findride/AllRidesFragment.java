@@ -1,7 +1,9 @@
 package io.github.viv2d2.findride;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,8 +49,16 @@ public class AllRidesFragment extends Fragment {
                 Object temp = allRidesView.getItemAtPosition(position);
                 Ride currRide = (Ride) temp;
 
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                String jhed = settings.getString("JHED_ID", "");
+
                 Intent intent = new Intent(getActivity(), ViewRideActivity.class);
-                intent.putExtra("action", 1); // join car
+                if (currRide.inCar(jhed)) {
+                    intent.putExtra("action", 2); // leave car
+                } else {
+                    intent.putExtra("action", 1); // join car
+                }
+
                 intent.putExtra("from", currRide.getFrom());
                 intent.putExtra("to", currRide.getTo());
                 intent.putExtra("date", currRide.getDate());
@@ -56,7 +66,7 @@ public class AllRidesFragment extends Fragment {
                 intent.putExtra("riders", Integer.toString(currRide.getNumRiders()));
                 intent.putExtra("riderObjects", currRide.getRiders());
                 intent.putExtra("r", currRide);
-                System.out.println("time = " + currRide.getTime());
+
                 startActivity(intent);
 
             }

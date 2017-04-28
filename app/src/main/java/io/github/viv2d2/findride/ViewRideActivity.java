@@ -193,6 +193,9 @@ public class ViewRideActivity extends AppCompatActivity {
 
         } else { // action == 2
             // leave car - remove user from car/delete car
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+            jhed = settings.getString("JHED_ID", "");
+
             currRide = (Ride) getIntent().getSerializableExtra("r");
             currRide.deleteRider(jhed);
 
