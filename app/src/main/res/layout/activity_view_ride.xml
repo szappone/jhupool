@@ -173,59 +173,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
                 android:orientation="vertical"
                 android:gravity="start|center_vertical"
                 android:textAlignment="viewStart"
                 android:paddingLeft="30dp"
                 android:id="@+id/rider_last"
-                android:paddingTop="19dp">
+                android:weightSum="1">
 
-                <LinearLayout
+                <ListView
+                    android:id="@+id/riders"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:src="@drawable/blue"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="22dp"
-                        android:id="@+id/riders_info"
-                        android:gravity="start|center_vertical"
-                        android:textAlignment="viewStart"
-                        android:text="Sarah                 24 mutual"
-                        android:paddingLeft="30dp"
-                        android:layout_below="@+id/riders_title"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="15dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:src="@drawable/fuscia"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="22dp"
-                        android:gravity="start|center_vertical"
-                        android:textAlignment="viewStart"
-                        android:paddingLeft="30dp"
-                        android:text="Vivian                 73 mutual"
-                        android:layout_below="@+id/riders_title"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
-                </LinearLayout>
+                    android:divider="?android:attr/windowBackground">
+                </ListView>
 
             </LinearLayout>
 

@@ -3,6 +3,7 @@ package io.github.viv2d2.findride;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
 
@@ -37,10 +38,29 @@ public class ViewRideActivity extends AppCompatActivity {
     private TextView riders_info;
     private TextView action_button;
 
+    private ListView ridersView;
+    private ArrayList<Rider> r;
+    protected static RiderAdapter riderAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_ride);
+
+
+        // Riders listview
+        ridersView = (ListView) findViewById(R.id.riders);
+        r = new ArrayList<Rider>();
+        Rider r1 = new Rider("Vivian", 1, "it was the best of times");
+        Rider r2 = new Rider("Sarah", 0, "it was the worst of times");
+        Rider r3 = new Rider("Will", 0, "it was the age of wisdom");
+        r.add(r1);
+        r.add(r2);
+        r.add(r3);
+
+        // Set up adapter
+        riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
+        ridersView.setAdapter(riderAdapter);
 
         // Initialize variables
         input_from = (TextView) findViewById(R.id.from_input);
@@ -49,7 +69,7 @@ public class ViewRideActivity extends AppCompatActivity {
         input_time = (TextView) findViewById(R.id.time_input);
         input_riders = (TextView) findViewById(R.id.riders_input);
         input_notes = (TextView) findViewById(R.id.notes_input);
-        riders_info = (TextView) findViewById(R.id.riders_info);
+        //riders_info = (TextView) findViewById(R.id.riders_info);
         action_button = (TextView) findViewById(R.id.action_button);
 
         // Get info
@@ -81,7 +101,7 @@ public class ViewRideActivity extends AppCompatActivity {
             action_button.setText("Leave Car");
         }
         // Set rider info
-        riders_info.setText("Sarah                  24 mutual");
+        //riders_info.setText("Sarah                  24 mutual");
     }
 
     public void action(View view) {
@@ -128,4 +148,5 @@ public class ViewRideActivity extends AppCompatActivity {
             // leave car - remove user from car/delete car
         }
     }
+
 }
