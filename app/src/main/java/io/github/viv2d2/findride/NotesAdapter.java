@@ -52,9 +52,9 @@ public class NotesAdapter extends ArrayAdapter<Rider> {
 
 
         // Set up icon
-        if (rider.getName().equals("Sarah")) {
+        if (rider.getFacebook().equals("Sarah")) {
             input_profile.setImageResource(R.drawable.pink);
-        } else if (rider.getName().equals("Will")) {
+        } else if (rider.getFacebook().equals("Will")) {
             input_profile.setImageResource(R.drawable.blue);
         } else {
             input_profile.setImageResource(R.drawable.green);

@@ -60,7 +60,7 @@ public class Ride {
     /** Returns note corresponding to given rider r. */
     public String getNoteFromRider(String r) {
         for (int i = 0; i < this.riders.size(); ++i) {
-            if (this.riders.get(i).getName().equals(r)) {
+            if (this.riders.get(i).getJHED().equals(r)) {
                 return this.riders.get(i).getNotes();
             }
         }
@@ -70,7 +70,7 @@ public class Ride {
     /** Sets note n for a specific rider r. */
     public boolean setNoteToRider(String r, String n) {
         for (int i = 0; i < this.riders.size(); ++i) {
-            if (this.riders.get(i).getName().equals(r)) {
+            if (this.riders.get(i).getJHED().equals(r)) {
                 this.riders.get(i).setNote(n);
                 return true;
             }
@@ -81,7 +81,7 @@ public class Ride {
     /** Adds note n to the notes of rider r. */
     public boolean addNoteToRider(String r, String n) {
         for (int i = 0; i < this.riders.size(); ++i) {
-            if (this.riders.get(i).getName().equals(r)) {
+            if (this.riders.get(i).getJHED().equals(r)) {
                 this.riders.get(i).addNote(n);
                 return true;
             }
@@ -98,7 +98,7 @@ public class Ride {
     /** Deletes rider from rider array, notes array. */
     public boolean deleteRider(String r) {
         for (int i = 0; i < this.riders.size(); ++i) {
-            if (this.riders.get(i).getName().equals(r)) {
+            if (this.riders.get(i).getJHED().equals(r)) {
                 this.numRiders -= this.riders.get(i).getNumTotal();
                 this.riders.remove(i);
                 return true;

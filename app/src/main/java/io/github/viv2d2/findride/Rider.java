@@ -7,7 +7,8 @@ import java.util.ArrayList;
  */
 
 public class Rider {
-    private String name;
+    private String jhed;
+    private String facebook;
     private int numGuests;
     private int numTotal;
     private String notes;
@@ -18,22 +19,25 @@ public class Rider {
     }
 
     /** Ride constructor. */
-    public Rider(String n, int t, String no) {
-        this.name = n;
+    public Rider(String j, String f, int t, String no) {
+        this.jhed = j;
+        this.facebook = f;
         this.numTotal = t;
         this.numGuests = t - 1;
         this.notes = no;
     }
 
     /** Ride constructor (no notes). */
-    public Rider(String n, int g) {
-        this.name = n;
+    public Rider(String j, String f, int g) {
+        this.jhed = j;
+        this.facebook = f;
         this.numGuests = g;
         this.notes = "";
     }
 
     /** Getters. */
-    public String getName() { return this.name; }
+    public String getJHED() { return this.jhed; }
+    public String getFacebook() { return this.facebook; }
     public int getNumGuests() { return this.numGuests; }
     public int getNumTotal() { return this.numTotal; }
     public String getNotes() { return this.notes; }

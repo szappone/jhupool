@@ -1,7 +1,9 @@
 package io.github.viv2d2.findride;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -78,9 +80,9 @@ public class ViewRideActivity extends AppCompatActivity {
             // Set up rider adapter
             ridersView = (ListView) findViewById(R.id.riders);
             r = new ArrayList<Rider>();
-            Rider r1 = new Rider("Vivian", 2, "it was the best of times");
-            Rider r2 = new Rider("Sarah", 1, "it was the worst of times");
-            Rider r3 = new Rider("Will", 1, "it was the age of wisdom");
+            Rider r1 = new Rider("vtsai5", "Vivian", 2, "it was the best of times");
+            Rider r2 = new Rider("szappon1", "Sarah", 1, "it was the worst of times");
+            Rider r3 = new Rider("wmattes2", "Will", 1, "it was the age of wisdom");
             r.add(r1);
             r.add(r2);
             r.add(r3);
@@ -97,7 +99,12 @@ public class ViewRideActivity extends AppCompatActivity {
             // Set up rider adapter
             ridersView = (ListView) findViewById(R.id.riders);
             r = new ArrayList<Rider>();
-            r1 = new Rider("You", Integer.parseInt(riders), notes);
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+            String jhed = settings.getString("JHED_ID", "");
+            String facebook = settings.getString("Facebook_ID", "");
+
+            // Use YOU instead of Facebook name for user
+            r1 = new Rider(jhed, facebook, Integer.parseInt(riders), notes);
             r.add(r1);
 
             riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
