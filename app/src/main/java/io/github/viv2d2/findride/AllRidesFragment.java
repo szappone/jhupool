@@ -89,6 +89,8 @@ public class AllRidesFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                allRides = new ArrayList<Ride>();
+
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
                     allRides.add(ride);

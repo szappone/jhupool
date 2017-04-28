@@ -86,6 +86,8 @@ public class MyRidesFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                myRides = new ArrayList<Ride>();
+
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
                     if (ride.inCar(jhed)) {
