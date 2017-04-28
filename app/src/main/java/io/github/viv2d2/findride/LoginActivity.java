@@ -1,9 +1,11 @@
 package io.github.viv2d2.findride;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -49,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //checking if already logged in
         final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
-
+        final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         fbIn = login.getBoolean("Facebook",false);
@@ -84,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 fbIn = true;
                 edit.putBoolean("Facebook",true);
                 edit.commit();
+
             }
 
             @Override
@@ -111,6 +114,15 @@ public class LoginActivity extends AppCompatActivity {
                     edit.putBoolean("JHED",true);
                     edit.commit();
                     if (fbIn) {
+                        // save for settings
+                        // NOT FINISHED YET
+                        SharedPreferences.Editor settings_edit = settings.edit();
+                        // how do you get your Facebook name here?
+                        settings_edit.putString("Facebook_ID","Han Solo");
+                        settings_edit.putString("JHED_ID", jhedInput.getText().toString());
+                        settings_edit.commit();
+
+                        // Start MainActivity
                         Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                         LoginActivity.this.startActivity(mainIntent);
                     }
