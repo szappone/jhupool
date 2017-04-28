@@ -23,6 +23,13 @@ public class Rider {
         this.notes = no;
     }
 
+    /** Ride constructor (no notes). */
+    public Rider(String n, int g) {
+        this.name = n;
+        this.numGuests = g;
+        this.notes = "";
+    }
+
     /** Getters. */
     public String getName() { return this.name; }
     public int getNumGuests() { return this.numGuests; }
