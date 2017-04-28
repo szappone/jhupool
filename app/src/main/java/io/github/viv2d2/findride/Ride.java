@@ -106,4 +106,14 @@ public class Ride {
         }
         return false;
     }
+
+    /** Whether or not rider is in car. */
+    public boolean inCar(String r) {
+        for (int i = 0; i < this.riders.size(); ++i) {
+            if (this.riders.get(i).getJHED().equals(r)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
