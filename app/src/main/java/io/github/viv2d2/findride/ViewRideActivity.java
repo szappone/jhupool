@@ -42,6 +42,9 @@ public class ViewRideActivity extends AppCompatActivity {
     private ArrayList<Rider> r;
     protected static RiderAdapter riderAdapter;
 
+    private ListView notesView;
+    protected static NotesAdapter notesAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +61,14 @@ public class ViewRideActivity extends AppCompatActivity {
         r.add(r2);
         r.add(r3);
 
-        // Set up adapter
+        // Set up rider adapter
         riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
         ridersView.setAdapter(riderAdapter);
+
+        // Set up notes adapter
+        notesView = (ListView) findViewById(R.id.notes);
+        notesAdapter = new NotesAdapter(ViewRideActivity.this, R.layout.notes_view, r);
+        notesView.setAdapter(notesAdapter);
 
         // Initialize variables
         input_from = (TextView) findViewById(R.id.from_input);
@@ -68,7 +76,7 @@ public class ViewRideActivity extends AppCompatActivity {
         input_date = (TextView) findViewById(R.id.date_input);
         input_time = (TextView) findViewById(R.id.time_input);
         input_riders = (TextView) findViewById(R.id.riders_input);
-        input_notes = (TextView) findViewById(R.id.notes_input);
+        //input_notes = (TextView) findViewById(R.id.notes_input);
         //riders_info = (TextView) findViewById(R.id.riders_info);
         action_button = (TextView) findViewById(R.id.action_button);
 
@@ -87,7 +95,7 @@ public class ViewRideActivity extends AppCompatActivity {
         input_date.setText(date);
         input_time.setText(time);
         input_riders.setText(riders);
-        input_notes.setText(notes);
+        //input_notes.setText(notes);
 
         // Set action (based on 0,1,2)
         if (action == 0) {
@@ -100,8 +108,7 @@ public class ViewRideActivity extends AppCompatActivity {
             // leave car
             action_button.setText("Leave Car");
         }
-        // Set rider info
-        //riders_info.setText("Sarah                  24 mutual");
+
     }
 
     public void action(View view) {
