@@ -53,9 +53,10 @@ public class AllRidesFragment extends Fragment {
                 intent.putExtra("to", currRide.getTo());
                 intent.putExtra("date", currRide.getDate());
                 intent.putExtra("time", currRide.getTime());
-                intent.putExtra("riders", currRide.getNumRiders());
+                intent.putExtra("riders", Integer.toString(currRide.getNumRiders()));
                 intent.putExtra("riderObjects", currRide.getRiders());
-
+                intent.putExtra("r", currRide);
+                System.out.println("time = " + currRide.getTime());
                 startActivity(intent);
 
             }

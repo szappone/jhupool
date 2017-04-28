@@ -48,6 +48,8 @@ public class ViewRideActivity extends AppCompatActivity {
     private ArrayList<Rider> riderObjects;
 
     private Rider r1;
+    private Ride currRide;
+    private String jhed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,8 @@ public class ViewRideActivity extends AppCompatActivity {
         time = getIntent().getStringExtra("time");
         riders = getIntent().getStringExtra("riders");
         riderObjects = (ArrayList<Rider>) getIntent().getSerializableExtra("riderObjects");
+
+        notes = "";
 
         // Set fields
         input_from.setText(from);
@@ -103,10 +107,11 @@ public class ViewRideActivity extends AppCompatActivity {
             ridersView = (ListView) findViewById(R.id.riders);
             r = new ArrayList<Rider>();
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-            String jhed = settings.getString("JHED_ID", "");
+            jhed = settings.getString("JHED_ID", "");
             String facebook = settings.getString("Facebook_ID", "");
 
             // Use YOU instead of Facebook name for user
+            notes = getIntent().getStringExtra("notes");
             r1 = new Rider(jhed, facebook, Integer.parseInt(riders), notes);
             r.add(r1);
 
@@ -169,12 +174,39 @@ public class ViewRideActivity extends AppCompatActivity {
 
 
         } else if (action == 1) {
-
             // join car - add user to car
             // ADD DIALOG TO CONFIRM RIDERS, NOTES
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+            jhed = settings.getString("JHED_ID", "");
+            String facebook = settings.getString("Facebook_ID", "");
+
+            // Use YOU instead of Facebook name for user
+            r1 = new Rider(jhed, facebook, 1, notes);
+
+            currRide = (Ride) getIntent().getSerializableExtra("r");
+            currRide.addRider(r1);
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myDB = database.getReference();
+
+            myDB.child("Drive_Feed").child(currRide.getID()).setValue(currRide);
 
         } else { // action == 2
             // leave car - remove user from car/delete car
+            currRide = (Ride) getIntent().getSerializableExtra("r");
+            currRide.deleteRider(jhed);
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myDB = database.getReference();
+
+            if (currRide.getNumRiders() <= 0) {
+                // delete
+                myDB.child("Drive_Feed").child(currRide.getID()).removeValue();
+            } else {
+                // update
+                myDB.child("Drive_Feed").child(currRide.getID()).setValue(currRide);
+            }
+
         }
     }
 
