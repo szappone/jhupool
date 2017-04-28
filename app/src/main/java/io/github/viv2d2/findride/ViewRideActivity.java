@@ -54,9 +54,9 @@ public class ViewRideActivity extends AppCompatActivity {
         // Riders listview
         ridersView = (ListView) findViewById(R.id.riders);
         r = new ArrayList<Rider>();
-        Rider r1 = new Rider("Vivian", 1, "it was the best of times");
-        Rider r2 = new Rider("Sarah", 0, "it was the worst of times");
-        Rider r3 = new Rider("Will", 0, "it was the age of wisdom");
+        Rider r1 = new Rider("Vivian", 2, "it was the best of times");
+        Rider r2 = new Rider("Sarah", 1, "it was the worst of times");
+        Rider r3 = new Rider("Will", 1, "it was the age of wisdom");
         r.add(r1);
         r.add(r2);
         r.add(r3);
