@@ -57,7 +57,6 @@ public class FindRideResultsActivity extends AppCompatActivity {
         preview_fromTo = (TextView) findViewById(R.id.create_fromTo);
         preview_dateTime = (TextView) findViewById(R.id.create_dateTime);
         preview_riders = (TextView) findViewById(R.id.create_riders);
-
         preview_fromTo.setText(user_from + " -> " + user_to);
         preview_dateTime.setText(user_date + ", " + user_time);
         if (Integer.parseInt(user_riders) == 1) {
@@ -68,21 +67,23 @@ public class FindRideResultsActivity extends AppCompatActivity {
 
 
         // Populate results
-
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         jhed = settings.getString("JHED_ID", "");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myDB = database.getReference();
-
         rideResults = new ArrayList<Ride>();
 
-        myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
+
+
+
+         myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
+
                     if (!ride.inCar(jhed)) {
                         rideResults.add(ride);
                     }
