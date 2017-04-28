@@ -4,4 +4,4 @@ jhuPool is an Android application that matches members of the Johns Hopkins Univ
 
 ### Login ###
 
-Users are required to sign in with both their Facebook username and their JHED (since we don't have access to a databse of all of the JHEDs and their passwords, we have temporarily created an array of JHEDs to be accepted; this currently contains "wmattes2," "vtsai5," "szappon1," and "rkinney4").
+Users are required to sign in with both their Facebook username and their JHED (since we don't have access to a database of all of the JHEDs and their passwords, we have temporarily created an array of JHEDs to be accepted; this currently includes "wmattes2," "vtsai5," "szappon1," and "rkinney4"). Users do not have the option to log out, as this is unnecessary for the purpose of the app.
