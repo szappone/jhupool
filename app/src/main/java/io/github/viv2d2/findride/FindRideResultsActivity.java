@@ -75,8 +75,6 @@ public class FindRideResultsActivity extends AppCompatActivity {
         rideResults = new ArrayList<Ride>();
 
 
-
-
          myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -84,8 +82,18 @@ public class FindRideResultsActivity extends AppCompatActivity {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
 
-                    if (!ride.inCar(jhed)) {
-                        rideResults.add(ride);
+
+                    if (user_date.compareTo(ride.getDate()) == 0) {
+
+                     /* System.out.println("from1: " + user_from + "from2: " + ride.getFrom());
+                     System.out.println("to1: " + user_to + "to2: " + ride.getTo());
+                        if (user_from.equals(ride.getFrom()) && user_to.equals(ride.getTo())) {*/
+                            if (checkWithinTimeFrame(user_time, ride.getTime())) {
+                                if (!ride.inCar(jhed)) {
+                                    rideResults.add(ride);
+                                }
+                            }
+                        //}
                     }
                 }
 
@@ -128,6 +136,13 @@ public class FindRideResultsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public boolean checkWithinTimeFrame(String requested, String possible) {
+        System.out.println("Requested Time: " + requested);
+        System.out.println("Possible Match: " + possible);
+
+        return true;
     }
 
     public void viewRide(View view) {
