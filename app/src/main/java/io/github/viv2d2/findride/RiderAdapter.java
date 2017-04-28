@@ -19,8 +19,8 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
 
     int resource;
 
-    public RiderAdapter(Context ctx, int r, List<Rider> rides)  {
-        super(ctx, r, rides);
+    public RiderAdapter(Context ctx, int r, List<Rider> riders)  {
+        super(ctx, r, riders);
         this.resource = r;
     }
 
