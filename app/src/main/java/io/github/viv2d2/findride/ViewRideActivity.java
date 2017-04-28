@@ -34,8 +34,6 @@ public class ViewRideActivity extends AppCompatActivity {
     private TextView input_date;
     private TextView input_time;
     private TextView input_riders;
-    private TextView input_notes;
-    private TextView riders_info;
     private TextView action_button;
 
     private ListView ridersView;
@@ -45,30 +43,12 @@ public class ViewRideActivity extends AppCompatActivity {
     private ListView notesView;
     protected static NotesAdapter notesAdapter;
 
+    private Rider r1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_ride);
-
-
-        // Riders listview
-        ridersView = (ListView) findViewById(R.id.riders);
-        r = new ArrayList<Rider>();
-        Rider r1 = new Rider("Vivian", 2, "it was the best of times");
-        Rider r2 = new Rider("Sarah", 1, "it was the worst of times");
-        Rider r3 = new Rider("Will", 1, "it was the age of wisdom");
-        r.add(r1);
-        r.add(r2);
-        r.add(r3);
-
-        // Set up rider adapter
-        riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
-        ridersView.setAdapter(riderAdapter);
-
-        // Set up notes adapter
-        notesView = (ListView) findViewById(R.id.notes);
-        notesAdapter = new NotesAdapter(ViewRideActivity.this, R.layout.notes_view, r);
-        notesView.setAdapter(notesAdapter);
 
         // Initialize variables
         input_from = (TextView) findViewById(R.id.from_input);
@@ -76,8 +56,6 @@ public class ViewRideActivity extends AppCompatActivity {
         input_date = (TextView) findViewById(R.id.date_input);
         input_time = (TextView) findViewById(R.id.time_input);
         input_riders = (TextView) findViewById(R.id.riders_input);
-        //input_notes = (TextView) findViewById(R.id.notes_input);
-        //riders_info = (TextView) findViewById(R.id.riders_info);
         action_button = (TextView) findViewById(R.id.action_button);
 
         // Get info
@@ -95,7 +73,41 @@ public class ViewRideActivity extends AppCompatActivity {
         input_date.setText(date);
         input_time.setText(time);
         input_riders.setText(riders);
-        //input_notes.setText(notes);
+
+        if (action != 0) {
+            // Set up rider adapter
+            ridersView = (ListView) findViewById(R.id.riders);
+            r = new ArrayList<Rider>();
+            Rider r1 = new Rider("Vivian", 2, "it was the best of times");
+            Rider r2 = new Rider("Sarah", 1, "it was the worst of times");
+            Rider r3 = new Rider("Will", 1, "it was the age of wisdom");
+            r.add(r1);
+            r.add(r2);
+            r.add(r3);
+            riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
+            ridersView.setAdapter(riderAdapter);
+
+            // Set up notes adapter
+            notesView = (ListView) findViewById(R.id.notes);
+            notesAdapter = new NotesAdapter(ViewRideActivity.this, R.layout.notes_view, r);
+            notesView.setAdapter(notesAdapter);
+        }
+
+        if (action == 0) {
+            // Set up rider adapter
+            ridersView = (ListView) findViewById(R.id.riders);
+            r = new ArrayList<Rider>();
+            r1 = new Rider("You", Integer.parseInt(riders), notes);
+            r.add(r1);
+
+            riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
+            ridersView.setAdapter(riderAdapter);
+
+            // Set up notes adapter
+            notesView = (ListView) findViewById(R.id.notes);
+            notesAdapter = new NotesAdapter(ViewRideActivity.this, R.layout.notes_view, r);
+            notesView.setAdapter(notesAdapter);
+        }
 
         // Set action (based on 0,1,2)
         if (action == 0) {
@@ -121,9 +133,8 @@ public class ViewRideActivity extends AppCompatActivity {
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myDB = database.getReference();
-            /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017", "8:30 AM", 3, "riders", "Notes");*/
-            //System.out.println(from + " " + to + " " + date + " " + time + " riders: " + riders + " notes: " +notes);
-            Rider r1 = new Rider("Vivian", 1, "it was the best of times");
+            /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017", "8:30 AM", 3, new Rider("Viv",1,"hello"));*/
+
             Ride ride = new Ride(from, to, date, time, r1);
             //myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
 

@@ -52,7 +52,11 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
         input_name.setText(name_input);
 
         // Set up mutual friends
-        input_mutual.setText("42 mutual");
+        if (rider.getName().equals("You")) {
+            input_mutual.setText("");
+        } else {
+            input_mutual.setText("42 mutual");
+        }
 
         // Set up icon
         if (rider.getName().equals("Sarah")) {
