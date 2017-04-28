@@ -71,6 +71,31 @@ public class AllRidesFragment extends Fragment {
             }
         });
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myDB = database.getReference();
+
+        myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                allRides = new ArrayList<Ride>();
+
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    Ride ride = child.getValue(Ride.class);
+                    allRides.add(ride);
+                }
+
+                rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, allRides);
+                allRidesView.setAdapter(rideAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+
+            }
+        });
+
         return rootView;
     }
 
@@ -87,6 +112,8 @@ public class AllRidesFragment extends Fragment {
         myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                allRides = new ArrayList<Ride>();
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);

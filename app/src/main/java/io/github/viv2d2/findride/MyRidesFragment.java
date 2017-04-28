@@ -69,6 +69,33 @@ public class MyRidesFragment extends Fragment {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
         jhed = settings.getString("JHED_ID", "");
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myDB = database.getReference();
+
+        myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                myRides = new ArrayList<Ride>();
+
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    Ride ride = child.getValue(Ride.class);
+                    if (ride.inCar(jhed)) {
+                        myRides.add(ride);
+                    }
+                }
+
+                rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
+                myRidesView.setAdapter(rideAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+
+            }
+        });
+
         return rootView;
     }
 
@@ -85,6 +112,8 @@ public class MyRidesFragment extends Fragment {
         myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                myRides = new ArrayList<Ride>();
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
