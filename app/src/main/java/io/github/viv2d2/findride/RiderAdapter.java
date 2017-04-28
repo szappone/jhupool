@@ -1,7 +1,9 @@
 package io.github.viv2d2.findride;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +15,16 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import static android.support.v4.content.ContextCompat.startActivity;
+
 /**
  * ArrayAdapter for rides.
  */
 
 public class RiderAdapter extends ArrayAdapter<Rider> {
-
+    private String fbID;
     int resource;
+    Rider rider;
 
     public RiderAdapter(Context ctx, int r, List<Rider> riders)  {
         super(ctx, r, riders);
@@ -29,7 +34,7 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LinearLayout riderView;
-        Rider rider = getItem(position);
+        rider = getItem(position);
 
         if (convertView == null) {
             riderView = new LinearLayout(getContext());
@@ -63,6 +68,8 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
         }
         input_name.setText(name_input);
 
+        fbID=rider.getID();
+
         // Set up mutual friends
         if (rider.getJHED().equals(jhed)) {
             input_mutual.setText("");
@@ -81,4 +88,12 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
 
         return riderView;
     }
+
+    public void messenger(View view) {
+
+        //startActivity(new Intent(Intent.ACTION_VIEW,
+          //      Uri.parse("https://m.me/" + rider.getID())));
+
+    }
+
 }
