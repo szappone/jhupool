@@ -123,17 +123,17 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor settings_edit = settings.edit();
                         // how do you get your Facebook name here?
                         // TEMP IF/ELSE
-                        if (jhedInput.equals("szappon1")) {
+                        if (jhedInput.getText().equals("szappon1")) {
                             settings_edit.putString("Facebook_ID","Sarah");
-                        } else if (jhedInput.equals("wmattes2")) {
+                        } else if (jhedInput.getText().equals("wmattes2")) {
                             settings_edit.putString("Facebook_ID","Will");
-                        } else if (jhedInput.equals("vtsai5")) {
+                        } else if (jhedInput.getText().equals("vtsai5")) {
                             settings_edit.putString("Facebook_ID","Vivian");
-                        } else if (jhedInput.equals("rkinney4")) {
+                        } else if (jhedInput.getText().equals("rkinney4")) {
                             settings_edit.putString("Facebook_ID","Rachel");
-                        } else if (jhedInput.equals("rwease1")) {
+                        } else if (jhedInput.getText().equals("rwease1")) {
                             settings_edit.putString("Facebook_ID","Ron");
-                        } else if (jhedInput.equals("adent42")) {
+                        } else if (jhedInput.getText().equals("adent42")) {
                             settings_edit.putString("Facebook_ID","Arthur");
                         } else {
                             settings_edit.putString("Facebook_ID","Han");
