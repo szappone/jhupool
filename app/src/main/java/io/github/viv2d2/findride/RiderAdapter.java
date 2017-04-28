@@ -55,6 +55,13 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
         input_mutual.setText("42 mutual");
 
         // Set up icon
+        if (rider.getName().equals("Sarah")) {
+            input_profile.setImageResource(R.drawable.pink);
+        } else if (rider.getName().equals("Will")) {
+            input_profile.setImageResource(R.drawable.blue);
+        } else {
+            input_profile.setImageResource(R.drawable.green);
+        }
 
         return riderView;
     }
