@@ -147,7 +147,7 @@ public class FindRideActivity extends AppCompatActivity {
         intent.putExtra("date", input_date.getText().toString());
         intent.putExtra("time", input_time.getText().toString());
         intent.putExtra("riders", input_riders.getText().toString());
-        intent.putExtra("notes", input_notes.getText().toString());
+        intent.putExtra("notes", notes);
         startActivity(intent);
     }
 
