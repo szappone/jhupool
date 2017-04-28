@@ -138,6 +138,11 @@ public class ViewRideActivity extends AppCompatActivity {
 
     }
 
+    public void messenger (View view) {
+        Intent intent = new Intent(ViewRideActivity.this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
     public void action(View view) {
         Intent intent = new Intent(ViewRideActivity.this, MainActivity.class);
         startActivity(intent);
