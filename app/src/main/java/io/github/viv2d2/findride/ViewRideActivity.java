@@ -246,7 +246,7 @@ public class ViewRideActivity extends AppCompatActivity {
 
     public void messenger(View view) {
 
-        startActivity(new Intent(Intent.ACTION_VIEW,
+        view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse("https://m.me/" + fbmID)));
 
     }

@@ -91,8 +91,8 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
 
     public void messenger(View view) {
 
-        //startActivity(new Intent(Intent.ACTION_VIEW,
-          //      Uri.parse("https://m.me/" + rider.getID())));
+        //view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
+          //      Uri.parse("https://m.me/" + fbID)));
 
     }
 
