@@ -81,6 +81,8 @@ public class FindRideResultsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                rideResults = new ArrayList<Ride>();
+
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
                     if (!ride.inCar(jhed)) {
