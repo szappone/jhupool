@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,27 +48,22 @@ public class MyRidesFragment extends Fragment {
         myRides = new ArrayList<Ride>();
         Rider ron = new Rider("rwease1", "Ron", 2, "mum always said midnight");
         Ride r1 = new Ride("Homewood", "Whole Foods", "Sat May 6, 2017", "03:42 PM", ron);
-        myRides.add(r1);
-        myRides.add(r1);
-        myRides.add(r1);
-        myRides.add(r1);
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myDB = database.getReference();
 
-        myDB.addListenerForSingleValueEvent(new ValueEventListener() {
+        myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //Ride ride = (Ride) dataSnapshot.getValue();
+
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
                     myRides.add(ride);
-                    System.out.println("VALUE: " + ride);
-                    //dataSnapshot.getValue();
-                    //myRides.add(ride);*/
-                    // do your stuff here with value
                 }
+
+                rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
+                myRidesView.setAdapter(rideAdapter);
 
             }
 
@@ -76,6 +72,7 @@ public class MyRidesFragment extends Fragment {
 
             }
         });
+
 
         // Set up adapter
         rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
