@@ -70,7 +70,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
         JHEDS = new ArrayList<>();
+        // real JHEDs
         JHEDS.add("wmattes2"); JHEDS.add("vtsai5"); JHEDS.add("szappon1"); JHEDS.add("rkinney4");
+        // fun JHEDs
+        JHEDS.add("adent42"); JHEDS.add("rwease1"); JHEDS.add("hsolo1");
+
         //textView = (TextView) findViewById(R.id.textView2);
         callbackManager = CallbackManager.Factory.create();
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -118,7 +122,24 @@ public class LoginActivity extends AppCompatActivity {
                         // NOT FINISHED YET
                         SharedPreferences.Editor settings_edit = settings.edit();
                         // how do you get your Facebook name here?
-                        settings_edit.putString("Facebook_ID","Han Solo");
+                        // TEMP IF/ELSE
+                        if (jhedInput.equals("szappon1")) {
+                            settings_edit.putString("Facebook_ID","Sarah");
+                        } else if (jhedInput.equals("wmattes2")) {
+                            settings_edit.putString("Facebook_ID","Will");
+                        } else if (jhedInput.equals("vtsai5")) {
+                            settings_edit.putString("Facebook_ID","Vivian");
+                        } else if (jhedInput.equals("rkinney4")) {
+                            settings_edit.putString("Facebook_ID","Rachel");
+                        } else if (jhedInput.equals("rwease1")) {
+                            settings_edit.putString("Facebook_ID","Ron");
+                        } else if (jhedInput.equals("adent42")) {
+                            settings_edit.putString("Facebook_ID","Arthur");
+                        } else {
+                            settings_edit.putString("Facebook_ID","Han");
+                        }
+
+                        // Put in JHED
                         settings_edit.putString("JHED_ID", jhedInput.getText().toString());
                         settings_edit.commit();
 
