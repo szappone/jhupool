@@ -41,6 +41,11 @@ public class NotesAdapter extends ArrayAdapter<Rider> {
         ImageView input_profile = (ImageView) notesView.findViewById(R.id.profile);
         TextView input_notes = (TextView) notesView.findViewById(R.id.notes);
 
+        // TEMP if no notes
+        if (rider.getNotes().equals("")) {
+            return notesView;
+        }
+
         // Set up notes
         String notes_input = rider.getNotes();
         input_notes.setText(notes_input);
