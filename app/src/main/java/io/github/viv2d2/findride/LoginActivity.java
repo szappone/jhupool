@@ -89,6 +89,10 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences.Editor edit = login.edit();
                 fbIn = true;
                 edit.putBoolean("Facebook",true);
+
+                //userID to trigger messenger
+                edit.putString("userID","" + loginResult.getAccessToken().getUserId());
+
                 edit.commit();
 
             }

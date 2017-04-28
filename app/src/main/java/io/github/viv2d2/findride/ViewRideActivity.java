@@ -3,12 +3,15 @@ package io.github.viv2d2.findride;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +20,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.net.Uri;
+import com.facebook.messenger.MessengerUtils;
+import com.facebook.messenger.MessengerThreadParams;
+import com.facebook.messenger.ShareToMessengerParams;
+
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 /**
  * Details for a ride.
@@ -50,10 +60,20 @@ public class ViewRideActivity extends AppCompatActivity {
     private Rider r1;
     private Ride currRide;
     private String jhed;
+    private static String fbmID;
+
+    private MessengerThreadParams mThreadParams;
+    private boolean mPicking;
+    private static final int REQUEST_CODE_SHARE_TO_MESSENGER = 1;
+    CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(this);
+        callbackManager = CallbackManager.Factory.create();
+
         setContentView(R.layout.activity_view_ride);
 
         // Initialize variables
@@ -74,6 +94,12 @@ public class ViewRideActivity extends AppCompatActivity {
         riderObjects = (ArrayList<Rider>) getIntent().getSerializableExtra("riderObjects");
 
         notes = "";
+
+
+        Intent intent = getIntent();
+
+        final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
+        fbmID=login.getString("userID","");
 
         // Set fields
         input_from.setText(from);
@@ -109,10 +135,12 @@ public class ViewRideActivity extends AppCompatActivity {
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
             jhed = settings.getString("JHED_ID", "");
             String facebook = settings.getString("Facebook_ID", "");
-
+            final SharedPreferences Log = getDefaultSharedPreferences(getApplicationContext());
+            String fbID=Log.getString("userID","");
             // Use YOU instead of Facebook name for user
             notes = getIntent().getStringExtra("notes");
-            r1 = new Rider(jhed, facebook, Integer.parseInt(riders), notes);
+
+            r1 = new Rider(jhed, facebook, Integer.parseInt(riders), notes, fbmID);
             r.add(r1);
 
             riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
@@ -138,10 +166,7 @@ public class ViewRideActivity extends AppCompatActivity {
 
     }
 
-    public void messenger (View view) {
-        Intent intent = new Intent(ViewRideActivity.this, SettingsActivity.class);
-        startActivity(intent);
-    }
+
 
     public void action(View view) {
         Intent intent = new Intent(ViewRideActivity.this, MainActivity.class);
@@ -186,7 +211,7 @@ public class ViewRideActivity extends AppCompatActivity {
             String facebook = settings.getString("Facebook_ID", "");
 
             // Use YOU instead of Facebook name for user
-            r1 = new Rider(jhed, facebook, 1, notes);
+            r1 = new Rider(jhed, facebook, 1, notes, fbmID);
 
             currRide = (Ride) getIntent().getSerializableExtra("r");
             currRide.addRider(r1);
@@ -217,5 +242,14 @@ public class ViewRideActivity extends AppCompatActivity {
 
         }
     }
+
+
+    public void messenger(View view) {
+
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://m.me/" + fbmID)));
+
+    }
+
 
 }

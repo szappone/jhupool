@@ -13,6 +13,7 @@ public class Rider implements Serializable {
     private int numGuests;
     private int numTotal;
     private String notes;
+    private String facebookmID;
 
     /** Ride constructor (empty). */
     public Rider() {
@@ -20,20 +21,23 @@ public class Rider implements Serializable {
     }
 
     /** Ride constructor. */
-    public Rider(String j, String f, int t, String no) {
+    public Rider(String j, String f, int t, String no, String fbmID) {
         this.jhed = j;
         this.facebook = f;
         this.numTotal = t;
         this.numGuests = t - 1;
         this.notes = no;
+        this.facebookmID = fbmID;
+
     }
 
     /** Ride constructor (no notes). */
-    public Rider(String j, String f, int g) {
+    public Rider(String j, String f, int g, String fbmID) {
         this.jhed = j;
         this.facebook = f;
         this.numGuests = g;
         this.notes = "";
+        this.facebookmID = fbmID;
     }
 
     /** Getters. */
@@ -42,6 +46,7 @@ public class Rider implements Serializable {
     public int getNumGuests() { return this.numGuests; }
     public int getNumTotal() { return this.numTotal; }
     public String getNotes() { return this.notes; }
+    public String getID() { return this.facebookmID;}
 
     /** Sets note n for a specific rider r. */
     public void setNote(String n) {
