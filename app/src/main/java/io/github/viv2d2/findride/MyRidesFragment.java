@@ -101,8 +101,4 @@ public class MyRidesFragment extends Fragment {
 
     }
 
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        currRide = rideAdapter.getItem(position);
-        System.out.println(currRide.getTime());
-    }
 }
