@@ -12,8 +12,8 @@ public class Ride {
     private String to;
     private String date;
     private String time;
-    private ArrayList<String> riders;
-    private ArrayList<ArrayList<String>> notes;
+    private ArrayList<Rider> riders;
+    private int numRiders;
     private String category;
 
     /** Ride constructor (empty). */
@@ -21,20 +21,16 @@ public class Ride {
         // empty constructor
     }
 
-    /** Ride constructor. */
-    public Ride(String f, String t, String d, String ti, String r, String n) {
+
+    public Ride(String f, String t, String d, String ti, Rider r) {
         this.id = "";
         this.from = f;
         this.to = t;
         this.date = d;
         this.time = ti;
-        this.riders = new ArrayList<String>();
+        this.riders = new ArrayList<Rider>();
         this.riders.add(r);
-        this.notes = new ArrayList<ArrayList<String>>();
-        ArrayList<String> s = new ArrayList<String>();
-        s.add(r);
-        s.add(n);
-        this.notes.add(s);
+        this.numRiders = r.getNumTotal();
 
         // set category
         if (this.from.equals("BWI") || this.to.equals("BWI")) {
@@ -57,16 +53,15 @@ public class Ride {
     public String getTo() { return this.to; }
     public String getDate() { return this.date; }
     public String getTime() { return this.time; }
-    public int getNumRiders() { return this.riders.size(); }
-    public ArrayList<String> getRiders() { return this.riders; }
-    public ArrayList<ArrayList<String>> getNotes() { return this.notes; }
+    public int getNumRiders() { return this.numRiders; }
+    public ArrayList<Rider> getRiders() { return this.riders; }
     public String getCategory() { return this.category; }
 
     /** Returns note corresponding to given rider r. */
     public String getNoteFromRider(String r) {
-        for (int i = 0; i < this.notes.size(); ++i) {
-            if (this.notes.get(i).get(0).equals(r)) {
-                return this.notes.get(i).get(1);
+        for (int i = 0; i < this.riders.size(); ++i) {
+            if (this.riders.get(i).getName().equals(r)) {
+                return this.riders.get(i).getNotes();
             }
         }
         return "";
@@ -74,9 +69,9 @@ public class Ride {
 
     /** Sets note n for a specific rider r. */
     public boolean setNoteToRider(String r, String n) {
-        for (int i = 0; i < this.notes.size(); ++i) {
-            if (this.notes.get(i).get(0).equals(r)) {
-                this.notes.get(i).set(1, n);
+        for (int i = 0; i < this.riders.size(); ++i) {
+            if (this.riders.get(i).getName().equals(r)) {
+                this.riders.get(i).setNote(n);
                 return true;
             }
         }
@@ -85,9 +80,9 @@ public class Ride {
 
     /** Adds note n to the notes of rider r. */
     public boolean addNoteToRider(String r, String n) {
-        for (int i = 0; i < this.notes.size(); ++i) {
-            if (this.notes.get(i).get(0).equals(r)) {
-                this.notes.get(i).set(1, this.notes.get(i).get(1) + "\n" + n);
+        for (int i = 0; i < this.riders.size(); ++i) {
+            if (this.riders.get(i).getName().equals(r)) {
+                this.riders.get(i).addNote(n);
                 return true;
             }
         }
@@ -95,20 +90,17 @@ public class Ride {
     }
 
     /** Adds rider to rider array, notes array. */
-    public void addRider(String r, String n) {
+    public void addRider(Rider r) {
         this.riders.add(r);
-        ArrayList<String> s = new ArrayList<String>();
-        s.add(r);
-        s.add(n);
-        this.notes.add(s);
+        this.numRiders += r.getNumTotal();
     }
 
     /** Deletes rider from rider array, notes array. */
     public boolean deleteRider(String r) {
         for (int i = 0; i < this.riders.size(); ++i) {
-            if (this.riders.get(i).equals(r)) {
+            if (this.riders.get(i).getName().equals(r)) {
+                this.numRiders -= this.riders.get(i).getNumTotal();
                 this.riders.remove(i);
-                this.notes.remove(i);
                 return true;
             }
         }

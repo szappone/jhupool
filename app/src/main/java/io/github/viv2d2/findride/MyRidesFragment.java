@@ -45,7 +45,11 @@ public class MyRidesFragment extends Fragment {
 
         // Populate with rides
         myRides = new ArrayList<Ride>();
-        Ride r1 = new Ride("Homewood", "Whole Foods", "Sat May 6, 2017", "03:42 PM", "Viv", "it was the best of times");
+        Rider han = new Rider("Han", 2, "never tell me the odds");
+        Ride r1 = new Ride("Homewood", "Whole Foods", "Sat May 6, 2017", "03:42 PM", han);
+        myRides.add(r1);
+        myRides.add(r1);
+        myRides.add(r1);
         myRides.add(r1);
 
 

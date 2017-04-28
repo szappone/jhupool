@@ -123,7 +123,8 @@ public class ViewRideActivity extends AppCompatActivity {
             DatabaseReference myDB = database.getReference();
             /*Ride ride = new Ride("Homewood", "BWI", "Sun April 20, 2017", "8:30 AM", 3, "riders", "Notes");*/
             //System.out.println(from + " " + to + " " + date + " " + time + " riders: " + riders + " notes: " +notes);
-            Ride ride = new Ride(from, to, date, time, riders, notes);
+            Rider r1 = new Rider("Vivian", 1, "it was the best of times");
+            Ride ride = new Ride(from, to, date, time, r1);
             //myDB.child("Drive_Feed").child("Drive" + id).setValue(ride);
 
             ride.setID(myDB.child("Drive_Feed").push().getKey());
