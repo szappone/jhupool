@@ -34,17 +34,16 @@ public class FindRideResultsActivity extends AppCompatActivity {
     private String user_riders;
     private String user_notes;
 
-    private TextView preview_fromTo;
-    private TextView preview_dateTime;
-    private TextView preview_riders;
-
     protected static ArrayList<Ride> rideResults;
     protected static RideAdapter resultAdapter;
+    static int THREE_HOURS = 10800000;
     private ListView resultsView;
-    private View rootView;
     private String jhed;
+<<<<<<< HEAD
     private String facebook;
     static int THREE_HOURS = 10800000;
+=======
+>>>>>>> 3ca3650b247d6961a6c694cda6705f84689cc1c6
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,9 +58,9 @@ public class FindRideResultsActivity extends AppCompatActivity {
         user_notes = getIntent().getStringExtra("notes");
 
         // Set up preview for search
-        preview_fromTo = (TextView) findViewById(R.id.create_fromTo);
-        preview_dateTime = (TextView) findViewById(R.id.create_dateTime);
-        preview_riders = (TextView) findViewById(R.id.create_riders);
+        TextView preview_fromTo = (TextView) findViewById(R.id.create_fromTo);
+        TextView preview_dateTime = (TextView) findViewById(R.id.create_dateTime);
+        TextView preview_riders = (TextView) findViewById(R.id.create_riders);
         preview_fromTo.setText(user_from + " -> " + user_to);
         preview_dateTime.setText(user_date + ", " + user_time);
         if (Integer.parseInt(user_riders) == 1) {
@@ -69,7 +68,6 @@ public class FindRideResultsActivity extends AppCompatActivity {
         } else {
             preview_riders.setText(user_riders + " riders");
         }
-
 
         // Populate results
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
@@ -80,7 +78,6 @@ public class FindRideResultsActivity extends AppCompatActivity {
         DatabaseReference myDB = database.getReference();
         rideResults = new ArrayList<Ride>();
 
-
          myDB.child("Drive_Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -90,10 +87,8 @@ public class FindRideResultsActivity extends AppCompatActivity {
                     Ride ride = child.getValue(Ride.class);
                     rideResults = runMatchingAlgorithm(ride);
                 }
-
                 resultAdapter = new RideAdapter(FindRideResultsActivity.this, R.layout.ride_preview, rideResults);
                 resultsView.setAdapter(resultAdapter);
-
             }
 
             @Override
@@ -109,7 +104,6 @@ public class FindRideResultsActivity extends AppCompatActivity {
         resultsView.setAdapter(resultAdapter);
 
         // View a result
-
         resultsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -130,33 +124,22 @@ public class FindRideResultsActivity extends AppCompatActivity {
                 intent.putExtra("user", user);
 
                 startActivity(intent);
-
             }
         });
     }
 
     public ArrayList<Ride> runMatchingAlgorithm(Ride ride) {
         if (user_date.equals(ride.getDate())) {
-            System.out.println("from1: " + user_from + " to: " + user_to);
-            System.out.println("from2: " + ride.getFrom() + " to2: " + ride.getTo());
             if (user_from.equals(ride.getFrom()) && user_to.equals(ride.getTo())) {
-                System.out.println("MATCH");
-                if (checkWithinTimeFrame(user_time, ride.getTime())) {
-                    if (!ride.inCar(jhed)) {
+                if (checkWithinTimeFrame(user_time, ride.getTime()) && !ride.inCar(jhed)) {
                         rideResults.add(ride);
-                    }
                 }
-            } else {
-                System.out.println("NO");
             }
         }
         return rideResults;
     }
 
     public boolean checkWithinTimeFrame(String requested, String possible) {
-        System.out.println("Requested Time: " + requested);
-        System.out.println("Possible Match: " + possible);
-        SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
         SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
         Date date1 = null;
         Date date2 = null;
@@ -164,11 +147,8 @@ public class FindRideResultsActivity extends AppCompatActivity {
             date1 = parseFormat.parse(requested);
             date2 = parseFormat.parse(possible);
         } catch (ParseException p) {
-
         }
-        System.out.println("Elapsed D1 - D2: " + Math.abs(date1.getTime() - date2.getTime()));
-        boolean ifInBounds = Math.abs(date1.getTime() - date2.getTime()) < THREE_HOURS;
-        return ifInBounds;
+        return Math.abs(date1.getTime() - date2.getTime()) <= THREE_HOURS;
     }
 
     public void viewRide(View view) {
