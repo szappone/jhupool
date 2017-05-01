@@ -211,7 +211,10 @@ public class ViewRideActivity extends AppCompatActivity {
             String facebook = settings.getString("Facebook_ID", "");
 
             // Use YOU instead of Facebook name for user
-            // this is done in onCreate
+            // if not done in onCreate
+            if (r1 == null) {
+                r1 = new Rider(jhed, facebook, 1, "", "");
+            }
 
             currRide = (Ride) getIntent().getSerializableExtra("r");
             currRide.addRider(r1);
