@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -26,10 +27,16 @@ import java.util.ArrayList;
 public class MyRidesFragment extends Fragment {
 
     protected static ArrayList<Ride> myRides;
+    protected static ArrayList<Ride> myTravelRides;
+    protected static ArrayList<Ride> myGroceryRides;
     protected static RideAdapter rideAdapter;
     private ListView myRidesView;
     private View rootView;
     private String jhed;
+
+    private ImageView travel;
+    private ImageView all;
+    private ImageView groceries;
 
     private Ride currRide;
 
@@ -65,6 +72,15 @@ public class MyRidesFragment extends Fragment {
             }
         });
 
+        // Set up bottom toolbar
+        all = (ImageView) rootView.findViewById(R.id.global);
+        all.setOnClickListener(allFilter);
+        travel = (ImageView) rootView.findViewById(R.id.travel_only);
+        travel.setOnClickListener(travelFilter);
+        groceries = (ImageView) rootView.findViewById(R.id.grocery_only);
+        groceries.setOnClickListener(groceryFilter);
+
+        // Populate through Firebase
         // Shared pref
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
         jhed = settings.getString("JHED_ID", "");
@@ -77,11 +93,18 @@ public class MyRidesFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 myRides = new ArrayList<Ride>();
+                myTravelRides = new ArrayList<Ride>();
+                myGroceryRides = new ArrayList<Ride>();
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
                     if (ride.inCar(jhed)) {
                         myRides.add(ride);
+                        if (ride.getCategory().equals("travel")) {
+                            myTravelRides.add(ride);
+                        } else if (ride.getCategory().equals("groceries")) {
+                            myGroceryRides.add(ride);
+                        }
                     }
                 }
 
@@ -114,11 +137,18 @@ public class MyRidesFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 myRides = new ArrayList<Ride>();
+                myTravelRides = new ArrayList<Ride>();
+                myGroceryRides = new ArrayList<Ride>();
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Ride ride = child.getValue(Ride.class);
                     if (ride.inCar(jhed)) {
                         myRides.add(ride);
+                        if (ride.getCategory().equals("travel")) {
+                            myTravelRides.add(ride);
+                        } else if (ride.getCategory().equals("groceries")) {
+                            myGroceryRides.add(ride);
+                        }
                     }
                 }
 
@@ -139,5 +169,29 @@ public class MyRidesFragment extends Fragment {
         myRidesView.setAdapter(rideAdapter);
 
     }
+
+    private View.OnClickListener travelFilter = new View.OnClickListener() {
+        public void onClick(View v) {
+            // Populate with travel rides only
+            rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myTravelRides);
+            myRidesView.setAdapter(rideAdapter);
+        }
+    };
+
+    private View.OnClickListener allFilter = new View.OnClickListener() {
+        public void onClick(View v) {
+            // Populate with travel rides only
+            rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myRides);
+            myRidesView.setAdapter(rideAdapter);
+        }
+    };
+
+    private View.OnClickListener groceryFilter = new View.OnClickListener() {
+        public void onClick(View v) {
+            // Populate with travel rides only
+            rideAdapter = new RideAdapter(getActivity(), R.layout.ride_preview, myGroceryRides);
+            myRidesView.setAdapter(rideAdapter);
+        }
+    };
 
 }
