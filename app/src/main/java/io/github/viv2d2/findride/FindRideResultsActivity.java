@@ -39,11 +39,9 @@ public class FindRideResultsActivity extends AppCompatActivity {
     static int THREE_HOURS = 10800000;
     private ListView resultsView;
     private String jhed;
-<<<<<<< HEAD
+
     private String facebook;
     static int THREE_HOURS = 10800000;
-=======
->>>>>>> 3ca3650b247d6961a6c694cda6705f84689cc1c6
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
