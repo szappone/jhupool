@@ -43,6 +43,7 @@ public class FindRideResultsActivity extends AppCompatActivity {
     private ListView resultsView;
     private View rootView;
     private String jhed;
+    private String facebook;
     static int THREE_HOURS = 10800000;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,7 @@ public class FindRideResultsActivity extends AppCompatActivity {
         // Populate results
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         jhed = settings.getString("JHED_ID", "");
+        facebook = settings.getString("Facebook_ID", "");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myDB = database.getReference();
@@ -123,6 +125,9 @@ public class FindRideResultsActivity extends AppCompatActivity {
                 intent.putExtra("riders", Integer.toString(currRide.getNumRiders()));
                 intent.putExtra("riderObjects", currRide.getRiders());
                 intent.putExtra("r", currRide);
+
+                Rider user = new Rider(jhed, facebook, Integer.parseInt(user_riders), user_notes, "");
+                intent.putExtra("user", user);
 
                 startActivity(intent);
 

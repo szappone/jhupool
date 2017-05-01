@@ -92,7 +92,7 @@ public class ViewRideActivity extends AppCompatActivity {
         time = getIntent().getStringExtra("time");
         riders = getIntent().getStringExtra("riders");
         riderObjects = (ArrayList<Rider>) getIntent().getSerializableExtra("riderObjects");
-
+        r1 = (Rider) getIntent().getSerializableExtra("user");
         notes = "";
 
 
@@ -211,7 +211,7 @@ public class ViewRideActivity extends AppCompatActivity {
             String facebook = settings.getString("Facebook_ID", "");
 
             // Use YOU instead of Facebook name for user
-            r1 = new Rider(jhed, facebook, 1, notes, fbmID);
+            // this is done in onCreate
 
             currRide = (Ride) getIntent().getSerializableExtra("r");
             currRide.addRider(r1);
