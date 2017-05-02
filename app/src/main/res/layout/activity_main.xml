@@ -108,7 +108,6 @@
             android:src="@drawable/settings"
             android:background="@color/lightGray"
             android:id="@+id/settings"
-            android:onClick="settings"
             android:layout_weight=".25"
             android:textColor="@android:color/white"/>
     </LinearLayout>
