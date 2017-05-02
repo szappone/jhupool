@@ -36,7 +36,6 @@ public class FindRideResultsActivity extends AppCompatActivity {
 
     protected static ArrayList<Ride> rideResults;
     protected static RideAdapter resultAdapter;
-    static int THREE_HOURS = 10800000;
     private ListView resultsView;
     private String jhed;
 

@@ -11,6 +11,16 @@
     android:background="@color/hopkinsBlue"
     tools:context="io.github.viv2d2.findride.LoginActivity">
 
+
+<!-- this is how to display photos
+    <io.github.viv2d2.findride.ProfilePictureView
+        android:id="@+id/profilePicture"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal" />
+        -->
     <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
