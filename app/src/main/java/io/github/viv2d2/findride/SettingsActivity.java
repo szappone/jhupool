@@ -1,10 +1,12 @@
 package io.github.viv2d2.findride;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -34,5 +36,15 @@ public class SettingsActivity extends AppCompatActivity {
 
         input_facebook = (TextView) findViewById(R.id.facebook_input);
         input_facebook.setText(facebook);
+    }
+
+    public void logOut(View view) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor edit = settings.edit();
+        edit.putBoolean("JHED",false);
+        edit.putBoolean("Facebook",false);
+        edit.commit();
+        Intent login = new Intent(SettingsActivity.this, LoginActivity.class);
+        startActivity(login);
     }
 }

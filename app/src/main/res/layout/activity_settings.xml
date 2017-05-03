@@ -110,6 +110,41 @@
                 android:layout_weight="1" />
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--LOG OUT-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="35dp"
+                android:id="@+id/logout_title"
+                android:background="@color/colorAccent"
+                android:gravity="start|center_vertical"
+                android:textAlignment="viewStart"
+                android:text="Log out"
+                android:paddingLeft="30dp"
+                android:layout_weight="1"
+                android:onClick="logOut"/>
+
+            <TextView
+                android:text="@string/arrow"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:id="@+id/logout_arrow"
+                android:background="@color/colorAccent"
+                android:paddingRight="30dp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:onClick="logOut"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
