@@ -17,6 +17,16 @@
             android:id="@+id/profile"
             android:src="@drawable/fuscia"/>
 
+        <!-- this is how to display photos
+            <io.github.viv2d2.findride.ProfilePictureView
+                android:id="@+id/profilePicture"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_horizontal" />
+                -->
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="22dp"

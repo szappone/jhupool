@@ -142,6 +142,7 @@ public class ViewRideActivity extends AppCompatActivity {
             notes = getIntent().getStringExtra("notes");
 
             r1 = new Rider(jhed, facebook, Integer.parseInt(riders), notes, fbmID);
+            //
             r.add(r1);
 
             riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);

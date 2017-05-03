@@ -43,6 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences.Editor edit = settings.edit();
         edit.putBoolean("JHED",false);
         edit.putBoolean("Facebook",false);
+        edit.putBoolean("FBLogout",true);
         edit.commit();
         Intent login = new Intent(SettingsActivity.this, LoginActivity.class);
         startActivity(login);

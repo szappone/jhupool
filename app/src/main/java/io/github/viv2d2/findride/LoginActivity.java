@@ -25,6 +25,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.login.widget.ProfilePictureView;
@@ -74,15 +75,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //must use this class to make sure it is circular
+        //
         //profileImage = (io.github.viv2d2.findride.ProfilePictureView) findViewById(R.id.profilePicture);
+        //profileImage.setPresetSize(profileImage.SMALL);
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
         jhedInput = (EditText) findViewById(R.id.jhedInput);
         jhedInput.getBackground().mutate().setColorFilter(getResources().getColor(R.color.com_facebook_blue), PorterDuff.Mode.SRC_ATOP);
 
+        if(settings.getBoolean("FBLogout",false)) {
+            LoginManager.getInstance().logOut();
+            SharedPreferences.Editor settingsEdit = settings.edit();
+            settingsEdit.putBoolean("FBLotout",false);
 
 
+        }
         JHEDS = new ArrayList<>();
         // real JHEDs
         JHEDS.add("wmattes2"); JHEDS.add("vtsai5"); JHEDS.add("szappon1"); JHEDS.add("rkinney4");
@@ -160,8 +168,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 //take userid, can also grab other information from this
                 //profileImage.setProfileId(myprof.getId());
-
-                // /show.setImageURI(myprof.getProfilePictureUri(50,50));
                 if(!(JHEDIn))
                     JHEDIn=JHEDS.contains(jhedInput.getText().toString());
 
@@ -174,11 +180,12 @@ public class LoginActivity extends AppCompatActivity {
                         // save for settings
                         // NOT FINISHED YET
                         SharedPreferences.Editor settings_edit = settings.edit();
-                        edit.putString("fbID",myprof.getId());
+
 
                         //Id = myprof.getId();
-
-                        // how do you get your Facebook name here?
+                        //Here is how you put first name on facebook
+                        //String name = myprof.getFirstName();
+                        //settings_edit.putString("Facebook_ID",name);
                         // TEMP IF/ELSE
 
                         if (jhedInput.getText().toString().equals("szappon1")) {
@@ -199,6 +206,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         // Put in JHED
                         settings_edit.putString("JHED_ID", jhedInput.getText().toString());
+                        edit.putString("fbID",myprof.getId());
                         settings_edit.commit();
                         edit.commit();
 
