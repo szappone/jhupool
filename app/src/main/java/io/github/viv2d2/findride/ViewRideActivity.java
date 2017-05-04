@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
@@ -112,15 +113,21 @@ public class ViewRideActivity extends AppCompatActivity {
         if (action != 0) {
             // Set up rider adapter
             ridersView = (ListView) findViewById(R.id.riders);
-            /* r = new ArrayList<Rider>();
-            Rider r1 = new Rider("vtsai5", "Vivian", 2, "it was the best of times");
-            Rider r2 = new Rider("szappon1", "Sarah", 1, "it was the worst of times");
-            Rider r3 = new Rider("wmattes2", "Will", 1, "it was the age of wisdom");
-            r.add(r1);
-            r.add(r2);
-            r.add(r3); */
+
             riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, riderObjects);
             ridersView.setAdapter(riderAdapter);
+
+            ridersView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Object temp = ridersView.getItemAtPosition(position);
+                    Rider currRider = (Rider) temp;
+
+                    view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://m.me/" + currRider.getID())));
+
+                }
+            });
 
             // Set up notes adapter
             notesView = (ListView) findViewById(R.id.notes);
