@@ -84,10 +84,11 @@ public class LoginActivity extends AppCompatActivity {
         jhedInput = (EditText) findViewById(R.id.jhedInput);
         jhedInput.getBackground().mutate().setColorFilter(getResources().getColor(R.color.com_facebook_blue), PorterDuff.Mode.SRC_ATOP);
 
-        if(settings.getBoolean("FBLogout",false)) {
+        if(settings.getBoolean("FBLogout",true)) {
             LoginManager.getInstance().logOut();
             SharedPreferences.Editor settingsEdit = settings.edit();
-            settingsEdit.putBoolean("FBLotout",false);
+            settingsEdit.putBoolean("FBLogout",false);
+            settingsEdit.commit();
 
 
         }
