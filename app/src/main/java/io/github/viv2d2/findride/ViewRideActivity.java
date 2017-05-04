@@ -124,7 +124,7 @@ public class ViewRideActivity extends AppCompatActivity {
                     Rider currRider = (Rider) temp;
 
                     view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://m.me/" + currRider.getID())));
+                        Uri.parse("https://facebook.com/" + currRider.getID())));
 
                 }
             });
