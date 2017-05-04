@@ -184,10 +184,11 @@ public class LoginActivity extends AppCompatActivity {
 
                         //Id = myprof.getId();
                         //Here is how you put first name on facebook
-                        //String name = myprof.getFirstName();
-                        //settings_edit.putString("Facebook_ID",name);
+                        String name = myprof.getFirstName();
+                        settings_edit.putString("Facebook_ID",name);
+                        settings_edit.putString("fbID",myprof.getId());
                         // TEMP IF/ELSE
-
+                        /*
                         if (jhedInput.getText().toString().equals("szappon1")) {
                             settings_edit.putString("Facebook_ID","Sarah");
                         } else if (jhedInput.getText().toString().equals("wmattes2")) {
@@ -203,7 +204,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             settings_edit.putString("Facebook_ID","Han");
                         }
-
+                        */
                         // Put in JHED
                         settings_edit.putString("JHED_ID", jhedInput.getText().toString());
                         edit.putString("fbID",myprof.getId());

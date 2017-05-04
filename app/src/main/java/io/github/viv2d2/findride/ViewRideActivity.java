@@ -248,13 +248,4 @@ public class ViewRideActivity extends AppCompatActivity {
         }
     }
 
-
-    public void messenger(View view) {
-
-        view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("facebook.com/" + "10207990416347500")));
-
-    }
-
-
 }
