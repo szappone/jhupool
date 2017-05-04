@@ -47,9 +47,9 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
 
         ImageView input_profile = (ImageView) riderView.findViewById(R.id.profile);
         //Set profile to rider picture
-        //ProfilePictureView fbProfPic = (ProfilePictureView) riderView.findViewById(R.id.ProfilePictureView);
-        //fbProfPic.setPresetSize(fbProfPic.SMALL);
-        //fbProfPic.setProfileId(rider.getID());
+        ProfilePictureView fbProfPic = (ProfilePictureView) riderView.findViewById(R.id.profilePicture);
+        fbProfPic.setPresetSize(fbProfPic.SMALL);
+        fbProfPic.setProfileId(rider.getID());
         TextView input_name = (TextView) riderView.findViewById(R.id.name);
         TextView input_mutual = (TextView) riderView.findViewById(R.id.mutual);
 
@@ -84,7 +84,7 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
 
         // Set up icon
 
-
+/*
         if (rider.getFacebook().equals("Sarah") || rider.getFacebook().equals("Ron")) {
             input_profile.setImageResource(R.drawable.pink);
         } else if (rider.getFacebook().equals("Will") || rider.getFacebook().equals("Arthur")) {
@@ -92,7 +92,7 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
         } else {
             input_profile.setImageResource(R.drawable.green);
         }
-
+*/
         return riderView;
     }
 
