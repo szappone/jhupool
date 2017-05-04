@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     boolean fbIn;
     boolean JHEDIn;
     TextView showstuff;
+    SharedPreferences.Editor edit;
 
     io.github.viv2d2.findride.ProfilePictureView profileImage;
 
@@ -66,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //checking if already logged in
         final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
-        final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        //final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         fbIn = login.getBoolean("Facebook",false);
@@ -80,15 +81,16 @@ public class LoginActivity extends AppCompatActivity {
         //profileImage.setPresetSize(profileImage.SMALL);
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
+        final SharedPreferences.Editor edit = login.edit();
 
         jhedInput = (EditText) findViewById(R.id.jhedInput);
         jhedInput.getBackground().mutate().setColorFilter(getResources().getColor(R.color.com_facebook_blue), PorterDuff.Mode.SRC_ATOP);
 
-        if(settings.getBoolean("FBLogout",true)) {
+        if(login.getBoolean("FBLogout",true)) {
             LoginManager.getInstance().logOut();
-            SharedPreferences.Editor settingsEdit = settings.edit();
-            settingsEdit.putBoolean("FBLogout",false);
-            settingsEdit.commit();
+
+            edit.putBoolean("FBLogout",false);
+            edit.commit();
 
 
         }
@@ -107,6 +109,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(LoginResult loginResult) {
+                fbIn = true;
+                edit.putBoolean("Facebook",true);
                 if(Profile.getCurrentProfile() == null) {
                 mProfileTracker = new ProfileTracker() {
                     @Override
@@ -135,14 +139,12 @@ public class LoginActivity extends AppCompatActivity {
                 //);
 
                 //boolean that checks that facebook login is true
-                SharedPreferences.Editor edit = login.edit();
-                fbIn = true;
-                edit.putBoolean("Facebook",true);
+
 
                 //userID to trigger messenger
                 //need to make sure this is consistent in terms how storing
                 //can both link to profile as well as generate image with id
-                edit.putString("userID","" + loginResult.getAccessToken().getUserId());
+                //edit.putString("userID","" + loginResult.getAccessToken().getUserId());
 
                 //Profile userprof = Profile.getCurrentProfile();
 
@@ -173,21 +175,20 @@ public class LoginActivity extends AppCompatActivity {
                     JHEDIn=JHEDS.contains(jhedInput.getText().toString());
 
                 if (JHEDIn){
-                    SharedPreferences.Editor edit = login.edit();
+                    //SharedPreferences.Editor edit = login.edit();
                     edit.putBoolean("JHED",true);
                     edit.commit();
                     if (fbIn) {
                         Profile myprof = Profile.getCurrentProfile();
                         // save for settings
                         // NOT FINISHED YET
-                        SharedPreferences.Editor settings_edit = settings.edit();
 
 
                         //Id = myprof.getId();
                         //Here is how you put first name on facebook
                         String name = myprof.getFirstName();
-                        settings_edit.putString("Facebook_ID",name);
-                        settings_edit.putString("fbID",myprof.getId());
+                        edit.putString("Facebook_Name",name);
+                        edit.putString("fbID",myprof.getId());
                         // TEMP IF/ELSE
                         /*
                         if (jhedInput.getText().toString().equals("szappon1")) {
@@ -207,9 +208,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         */
                         // Put in JHED
-                        settings_edit.putString("JHED_ID", jhedInput.getText().toString());
-                        edit.putString("fbID",myprof.getId());
-                        settings_edit.commit();
+                        edit.putString("JHED_ID", jhedInput.getText().toString());
                         edit.commit();
 
                         // Start MainActivity

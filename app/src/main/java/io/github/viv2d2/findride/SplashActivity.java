@@ -21,7 +21,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         splashLogin = getDefaultSharedPreferences(getApplicationContext());
         fbLoggedin = splashLogin.getBoolean("Facebook",false);
-        jhedLoggedin=splashLogin.getBoolean("JHED",false);
+        jhedLoggedin = splashLogin.getBoolean("JHED",false);
 
 
 
@@ -31,7 +31,7 @@ public class SplashActivity extends Activity {
             public void run() {
 
                 if(fbLoggedin && jhedLoggedin) {
-                    Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
+                    Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
                     SplashActivity.this.startActivity(mainIntent);
                 }
                 else {
