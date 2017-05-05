@@ -42,13 +42,13 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void logOut(View view) {
-
+        final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor edit = login.edit();
         edit.putBoolean("JHED",false);
         edit.putBoolean("Facebook",false);
         edit.putBoolean("FBLogout",true);
         edit.commit();
-        Intent login = new Intent(SettingsActivity.this, LoginActivity.class);
-        startActivity(login);
+        Intent logout = new Intent(SettingsActivity.this, LoginActivity.class);
+        startActivity(logout);
     }
 }
