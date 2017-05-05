@@ -21,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
+
 /**
  * Shows results (from matching algorithm) and user's car (from search).
  */
@@ -116,8 +118,9 @@ public class FindRideResultsActivity extends AppCompatActivity {
                 intent.putExtra("riders", Integer.toString(currRide.getNumRiders()));
                 intent.putExtra("riderObjects", currRide.getRiders());
                 intent.putExtra("r", currRide);
+                final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
 
-                Rider user = new Rider(jhed, facebook, Integer.parseInt(user_riders), user_notes, "");
+                Rider user = new Rider(jhed, facebook, Integer.parseInt(user_riders), user_notes, login.getString("fbID", ""));
                 intent.putExtra("user", user);
 
                 startActivity(intent);
