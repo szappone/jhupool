@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
+
 /**
  * Settings page.
  */
@@ -19,6 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
     Switch notifications;
     private TextView input_jhed;
     private TextView input_facebook;
+    SharedPreferences login;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +30,9 @@ public class SettingsActivity extends AppCompatActivity {
         notifications = (Switch) findViewById(R.id.switch_notifications);
 
         // Set up JHED, facebook
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        String jhed = settings.getString("JHED_ID", "");
-        String facebook = settings.getString("Facebook_ID", "");
+        final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
+        String jhed = login.getString("JHED_ID", "");
+        String facebook = login.getString("Facebook_Name", "");
 
         input_jhed = (TextView) findViewById(R.id.jhed_input);
         input_jhed.setText(jhed);
@@ -39,12 +42,13 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void logOut(View view) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor edit = settings.edit();
+        final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor edit = login.edit();
         edit.putBoolean("JHED",false);
         edit.putBoolean("Facebook",false);
+        edit.putBoolean("FBLogout",true);
         edit.commit();
-        Intent login = new Intent(SettingsActivity.this, LoginActivity.class);
-        startActivity(login);
+        Intent logout = new Intent(SettingsActivity.this, LoginActivity.class);
+        startActivity(logout);
     }
 }

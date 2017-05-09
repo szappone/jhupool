@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
@@ -100,7 +101,7 @@ public class ViewRideActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
-        fbmID=login.getString("userID","");
+        fbmID=login.getString("fbID","");
 
         // Set fields
         input_from.setText(from);
@@ -112,15 +113,21 @@ public class ViewRideActivity extends AppCompatActivity {
         if (action != 0) {
             // Set up rider adapter
             ridersView = (ListView) findViewById(R.id.riders);
-            /* r = new ArrayList<Rider>();
-            Rider r1 = new Rider("vtsai5", "Vivian", 2, "it was the best of times");
-            Rider r2 = new Rider("szappon1", "Sarah", 1, "it was the worst of times");
-            Rider r3 = new Rider("wmattes2", "Will", 1, "it was the age of wisdom");
-            r.add(r1);
-            r.add(r2);
-            r.add(r3); */
+
             riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, riderObjects);
             ridersView.setAdapter(riderAdapter);
+
+            ridersView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Object temp = ridersView.getItemAtPosition(position);
+                    Rider currRider = (Rider) temp;
+
+                    view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://facebook.com/" + currRider.getID())));
+
+                }
+            });
 
             // Set up notes adapter
             notesView = (ListView) findViewById(R.id.notes);
@@ -133,15 +140,13 @@ public class ViewRideActivity extends AppCompatActivity {
             // Set up rider adapter
             ridersView = (ListView) findViewById(R.id.riders);
             r = new ArrayList<Rider>();
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-            jhed = settings.getString("JHED_ID", "");
-            String facebook = settings.getString("Facebook_ID", "");
-            final SharedPreferences Log = getDefaultSharedPreferences(getApplicationContext());
-            String fbID=Log.getString("userID","");
+            jhed = login.getString("JHED_ID", "");
+            String facebook = login.getString("Facebook_Name", "");
             // Use YOU instead of Facebook name for user
             notes = getIntent().getStringExtra("notes");
 
             r1 = new Rider(jhed, facebook, Integer.parseInt(riders), notes, fbmID);
+            //
             r.add(r1);
 
             riderAdapter = new RiderAdapter(ViewRideActivity.this, R.layout.rider_view, r);
@@ -171,6 +176,8 @@ public class ViewRideActivity extends AppCompatActivity {
 
     public void action(View view) {
         Intent intent = new Intent(ViewRideActivity.this, MainActivity.class);
+        final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
+
         startActivity(intent);
 
         if (action == 0) {
@@ -207,14 +214,13 @@ public class ViewRideActivity extends AppCompatActivity {
         } else if (action == 1) {
             // join car - add user to car
             // ADD DIALOG TO CONFIRM RIDERS, NOTES
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-            jhed = settings.getString("JHED_ID", "");
-            String facebook = settings.getString("Facebook_ID", "");
+            jhed = login.getString("JHED_ID", "");
+            String facebook = login.getString("Facebook_Name", "");
 
             // Use YOU instead of Facebook name for user
             // if not done in onCreate
             if (r1 == null) {
-                r1 = new Rider(jhed, facebook, 1, "", "");
+                r1 = new Rider(jhed, facebook, 1, "", login.getString("fbID",""));
             }
 
             currRide = (Ride) getIntent().getSerializableExtra("r");
@@ -227,8 +233,7 @@ public class ViewRideActivity extends AppCompatActivity {
 
         } else { // action == 2
             // leave car - remove user from car/delete car
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-            jhed = settings.getString("JHED_ID", "");
+            jhed = login.getString("JHED_ID", "");
 
             currRide = (Ride) getIntent().getSerializableExtra("r");
             currRide.deleteRider(jhed);
@@ -246,14 +251,5 @@ public class ViewRideActivity extends AppCompatActivity {
 
         }
     }
-
-
-    public void messenger(View view) {
-
-        view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://m.me/" + "10207990416347500")));
-
-    }
-
 
 }

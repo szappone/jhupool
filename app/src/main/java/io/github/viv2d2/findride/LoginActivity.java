@@ -25,6 +25,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.login.widget.ProfilePictureView;
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     boolean fbIn;
     boolean JHEDIn;
     TextView showstuff;
+    SharedPreferences.Editor edit;
 
     io.github.viv2d2.findride.ProfilePictureView profileImage;
 
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //checking if already logged in
         final SharedPreferences login = getDefaultSharedPreferences(getApplicationContext());
-        final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        //final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         fbIn = login.getBoolean("Facebook",false);
@@ -74,15 +76,24 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //must use this class to make sure it is circular
+        //
         //profileImage = (io.github.viv2d2.findride.ProfilePictureView) findViewById(R.id.profilePicture);
+        //profileImage.setPresetSize(profileImage.SMALL);
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
+        final SharedPreferences.Editor edit = login.edit();
 
         jhedInput = (EditText) findViewById(R.id.jhedInput);
         jhedInput.getBackground().mutate().setColorFilter(getResources().getColor(R.color.com_facebook_blue), PorterDuff.Mode.SRC_ATOP);
 
+        if(login.getBoolean("FBLogout",true)) {
+            LoginManager.getInstance().logOut();
+
+            edit.putBoolean("FBLogout",false);
+            edit.commit();
 
 
+        }
         JHEDS = new ArrayList<>();
         // real JHEDs
         JHEDS.add("wmattes2"); JHEDS.add("vtsai5"); JHEDS.add("szappon1"); JHEDS.add("rkinney4");
@@ -98,6 +109,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(LoginResult loginResult) {
+                fbIn = true;
+                edit.putBoolean("Facebook",true);
                 if(Profile.getCurrentProfile() == null) {
                 mProfileTracker = new ProfileTracker() {
                     @Override
@@ -126,14 +139,12 @@ public class LoginActivity extends AppCompatActivity {
                 //);
 
                 //boolean that checks that facebook login is true
-                SharedPreferences.Editor edit = login.edit();
-                fbIn = true;
-                edit.putBoolean("Facebook",true);
+
 
                 //userID to trigger messenger
                 //need to make sure this is consistent in terms how storing
                 //can both link to profile as well as generate image with id
-                edit.putString("userID","" + loginResult.getAccessToken().getUserId());
+                //edit.putString("userID","" + loginResult.getAccessToken().getUserId());
 
                 //Profile userprof = Profile.getCurrentProfile();
 
@@ -160,27 +171,26 @@ public class LoginActivity extends AppCompatActivity {
 
                 //take userid, can also grab other information from this
                 //profileImage.setProfileId(myprof.getId());
-
-                // /show.setImageURI(myprof.getProfilePictureUri(50,50));
                 if(!(JHEDIn))
                     JHEDIn=JHEDS.contains(jhedInput.getText().toString());
 
                 if (JHEDIn){
-                    SharedPreferences.Editor edit = login.edit();
+                    //SharedPreferences.Editor edit = login.edit();
                     edit.putBoolean("JHED",true);
                     edit.commit();
                     if (fbIn) {
                         Profile myprof = Profile.getCurrentProfile();
                         // save for settings
                         // NOT FINISHED YET
-                        SharedPreferences.Editor settings_edit = settings.edit();
-                        edit.putString("fbID",myprof.getId());
+
 
                         //Id = myprof.getId();
-
-                        // how do you get your Facebook name here?
+                        //Here is how you put first name on facebook
+                        String name = myprof.getFirstName();
+                        edit.putString("Facebook_Name",name);
+                        edit.putString("fbID",myprof.getId());
                         // TEMP IF/ELSE
-
+                        /*
                         if (jhedInput.getText().toString().equals("szappon1")) {
                             settings_edit.putString("Facebook_ID","Sarah");
                         } else if (jhedInput.getText().toString().equals("wmattes2")) {
@@ -196,10 +206,9 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             settings_edit.putString("Facebook_ID","Han");
                         }
-
+                        */
                         // Put in JHED
-                        settings_edit.putString("JHED_ID", jhedInput.getText().toString());
-                        settings_edit.commit();
+                        edit.putString("JHED_ID", jhedInput.getText().toString());
                         edit.commit();
 
                         // Start MainActivity
@@ -227,20 +236,4 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private Bitmap getImageBitmap(String url) {
-        Bitmap bm = null;
-        try {
-            URL aURL = new URL(url);
-            URLConnection conn = aURL.openConnection();
-            conn.connect();
-            InputStream is = conn.getInputStream();
-            BufferedInputStream bis = new BufferedInputStream(is);
-            bm = BitmapFactory.decodeStream(bis);
-            bis.close();
-            is.close();
-        } catch (IOException e) {
-            Log.e("TAG", "Error getting bitmap", e);
-        }
-        return bm;
-    }
 }
