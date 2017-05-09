@@ -1,9 +1,7 @@
 package io.github.viv2d2.findride;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
-
-import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * ArrayAdapter for rides.
@@ -47,9 +43,12 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
 
         ImageView input_profile = (ImageView) riderView.findViewById(R.id.profile);
         //Set profile to rider picture
+
         ProfilePictureView fbProfPic = (ProfilePictureView) riderView.findViewById(R.id.profilePicture);
-        fbProfPic.setPresetSize(fbProfPic.SMALL);
+        //fbProfPic.setPresetSize(fbProfPic.SMALL);
         fbProfPic.setProfileId(rider.getID());
+
+        //fbProfPic.setProfileId("10211990690976455");
         TextView input_name = (TextView) riderView.findViewById(R.id.name);
         TextView input_mutual = (TextView) riderView.findViewById(R.id.mutual);
 

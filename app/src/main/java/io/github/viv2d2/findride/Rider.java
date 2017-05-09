@@ -1,7 +1,6 @@
 package io.github.viv2d2.findride;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Ride object.
@@ -19,6 +18,8 @@ public class Rider implements Serializable {
     public Rider() {
         // empty constructor
     }
+
+
 
     /** Ride constructor. */
     public Rider(String j, String f, int t, String no, String fbmID) {
