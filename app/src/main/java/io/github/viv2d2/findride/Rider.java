@@ -47,7 +47,17 @@ public class Rider implements Serializable {
     public int getNumGuests() { return this.numGuests; }
     public int getNumTotal() { return this.numTotal; }
     public String getNotes() { return this.notes; }
-    public String getID() { return this.facebookmID;}
+    public String getID() {
+        if (this.jhed.equals("wmattes2")) {
+            return "10211990690976455";
+        } else if (this.jhed.equals("szappon1")) {
+            return "10207990416347500";
+        } else if (this.jhed.equals("vtsai5")) {
+            return "761304080698596";
+        } else {
+            return "rachelkinney.ninja";
+        }
+    }
 
     /** Sets note n for a specific rider r. */
     public void setNote(String n) {
