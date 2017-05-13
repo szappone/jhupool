@@ -1,9 +1,10 @@
 package io.github.viv2d2.findride;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class RideNotification extends AppCompatActivity {
+public class RideNotification extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

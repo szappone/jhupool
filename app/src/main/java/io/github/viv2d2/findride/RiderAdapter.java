@@ -44,13 +44,21 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
         ImageView input_profile = (ImageView) riderView.findViewById(R.id.profile);
         //Set profile to rider picture
 
-        ProfilePictureView fbProfPic = (ProfilePictureView) riderView.findViewById(R.id.profilePicture);
-        //fbProfPic.setPresetSize(fbProfPic.SMALL);
-        fbProfPic.setProfileId(rider.getID());
+        // Actual code
+        //ProfilePictureView fbProfPic = (ProfilePictureView) riderView.findViewById(R.id.profilePicture);
+        //fbProfPic.setProfileId(rider.getID());
 
-        //fbProfPic.setProfileId("10211990690976455");
+        if (rider.getFacebook().equals("Sarah")) {
+            input_profile.setImageResource(R.drawable.fb_sz);
+        } else if (rider.getFacebook().equals("Will")) {
+            input_profile.setImageResource(R.drawable.fb_wt);
+        } else if (rider.getFacebook().equals("Vivian")) {
+            input_profile.setImageResource(R.drawable.fb_vt);
+        } else {
+            input_profile.setImageResource(R.drawable.fb_icon);
+        }
+
         TextView input_name = (TextView) riderView.findViewById(R.id.name);
-        TextView input_mutual = (TextView) riderView.findViewById(R.id.mutual);
 
         Context context = parent.getContext();
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
@@ -72,15 +80,6 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
         input_name.setText(name_input);
 
         fbID=rider.getID();
-
-        // Set up mutual friends
-        if (rider.getJHED().equals(jhed)) {
-            input_mutual.setText("");
-        } else {
-            input_mutual.setText("42 mutual");
-        }
-
-
         // Set up icon
 
         return riderView;
