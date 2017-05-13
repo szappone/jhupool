@@ -80,6 +80,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_gravity="center"
+                android:id="@+id/create_category"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout

@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -55,6 +56,16 @@ public class FindRideResultsActivity extends AppCompatActivity {
         user_time = getIntent().getStringExtra("time");
         user_riders = getIntent().getStringExtra("riders");
         user_notes = getIntent().getStringExtra("notes");
+
+        // Set up image for create car
+        ImageView newCar = (ImageView) findViewById(R.id.create_category);
+        if (user_from.equals("BWI") || user_to.equals("BWI")) {
+            newCar.setImageResource(R.drawable.travel);
+        } else if (user_from.equals("Hampdenfest") || user_to.equals("Hampdenfest")) {
+            newCar.setImageResource(R.drawable.globe);
+        } else {
+            newCar.setImageResource(R.drawable.grocery);
+        }
 
         // Set up preview for search
         TextView preview_fromTo = (TextView) findViewById(R.id.create_fromTo);
