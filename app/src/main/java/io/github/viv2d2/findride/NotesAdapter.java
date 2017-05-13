@@ -52,11 +52,11 @@ public class NotesAdapter extends ArrayAdapter<Rider> {
 
 
         // Set up icon
-        if (rider.getFacebook().equals("Sarah")) {
+        if (rider.getJHED().equals("szappon1")) {
             input_profile.setImageResource(R.drawable.fb_sz);
-        } else if (rider.getFacebook().equals("Will")) {
+        } else if (rider.getJHED().equals("wmattes2")) {
             input_profile.setImageResource(R.drawable.fb_wt);
-        } else if (rider.getFacebook().equals("Vivian")) {
+        } else if (rider.getJHED().equals("vtsai5")) {
             input_profile.setImageResource(R.drawable.fb_vt);
         } else {
             input_profile.setImageResource(R.drawable.fb_icon);
