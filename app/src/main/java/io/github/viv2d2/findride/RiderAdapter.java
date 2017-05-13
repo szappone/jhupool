@@ -68,6 +68,12 @@ public class RiderAdapter extends ArrayAdapter<Rider> {
         String name_input;
         if (rider.getJHED().equals(jhed)) {
             name_input = "You";
+        } else if (rider.getJHED().equals("szappon1")){
+            name_input = "Sarah";
+        } else if (rider.getJHED().equals("wmattes2")) {
+            name_input = "Will";
+        } else if (rider.getJHED().equals("vtsai5")) {
+            name_input = "Vivian";
         } else {
             name_input = rider.getFacebook();
         }
