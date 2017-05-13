@@ -17,13 +17,6 @@
         android:weightSum="1"
         android:orientation="vertical">
 
-    <!-- scrolling top pane -->
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp"
-        android:layout_alignParentTop="true">
-
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -234,7 +227,6 @@
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
 
     <!-- CALL ACTION METHOD -->
     <!-- action = 0 (create), 1 (join), 2 (leave) -->
